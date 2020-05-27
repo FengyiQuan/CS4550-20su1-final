@@ -1,4 +1,5 @@
 # CS4550-20su1-final
+# Jobigger
 # Team: Fengyi Quan, Ruochen Zhuang
 ## [Google Document Link](https://docs.google.com/document/d/1KFIONIMVNue0Vp0JVMilHfNbEsssDyMHjZ9Dn8Nkr8Y/edit)
 # Problem 
@@ -18,3 +19,5 @@
 - [Linkedin People Search](https://developer.linkedin.com/documents/people-search-api)
 - [Indeed API](https://rapidapi.com/indeed/api/indeed)
 
+# UML
+![Jobigger UML](./Jobigger%20UML.png)
