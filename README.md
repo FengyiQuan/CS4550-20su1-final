@@ -1,68 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CS4550-20su1-final
+# Team: Fengyi Quan, Ruochen Zhuang
+## [Google Document Link](https://docs.google.com/document/d/1KFIONIMVNue0Vp0JVMilHfNbEsssDyMHjZ9Dn8Nkr8Y/edit)
+# Problem 
 
-## Available Scripts
 
-In the project directory, you can run:
+- During the co-op or post-graduate job search process, the only available information is limited like job description or location. Such a description is not sufficient for job seekers to determine the value of the job. Instead, companies’ detailed information and first hand experience should be provided.
+- Employees can’t get in touch with fellow colleagues through a platform like NUcareer
 
-### `npm start`
+# Strategy
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- We are planning to build a web platform for these job seekers. Workers can write reviews on the company they worked with. To get a better understanding and knowledge about a company, job seekers can see the reviews from peers. It allows companies to post positions on our website. 
+- And job seekers can view all positions from different companies and make applications through our website. They can keep track of applications they made and interviews they received to see the process.
+- It also allows users to make organizations. For example, one company can form its own organization of workers. And these organizations are public to all users. Job seekers can see the workers who have been working there to make a better judge to accept or reject the positions. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Web API you intend to use: Jobs api for extracting jobs available
+- [Github Jobs](https://jobs.github.com/api)
+- [Linkedin People Search](https://developer.linkedin.com/documents/people-search-api)
+- [Indeed API](https://rapidapi.com/indeed/api/indeed)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
