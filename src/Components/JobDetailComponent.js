@@ -14,8 +14,10 @@ export default class JobDetailComponent extends React.Component {
                 "location":
                     {
                         "__CLASS__":
-                            "Adzuna::API::Response::Location", "display_name":
-                            "Maidstone, Kent", "area":
+                            "Adzuna::API::Response::Location",
+                        "display_name":
+                            "Maidstone, Kent",
+                        "area":
                             ["UK", "South East England", "Kent", "Maidstone"]
                     }
                 ,
@@ -25,9 +27,8 @@ export default class JobDetailComponent extends React.Component {
                     "Adzuna::API::Response::Job",
                 "company":
                     {
-                        "display_name":
-                            "Just Eat", "__CLASS__":
-                            "Adzuna::API::Response::Company"
+                        "display_name": "Just Eat",
+                        "__CLASS__": "Adzuna::API::Response::Company"
                     }
                 ,
                 "title":
@@ -119,7 +120,6 @@ export default class JobDetailComponent extends React.Component {
                         {this.state.job.id}
                     </span>
                 </div>
-
             </div>
         )
     }
