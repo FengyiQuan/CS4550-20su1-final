@@ -20,8 +20,8 @@ export default class JobListContainer
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.match.params.layout !== this.props.match.params.layout) {
             this.setState({
-                              layout: this.props.match.params.layout
-                          })
+                layout: this.props.match.params.layout
+            })
         }
     };
 
@@ -29,42 +29,42 @@ export default class JobListContainer
         this.props.history.push(`/${layout}/jobs`)
     };
 
-    deleteCourse = (courseToDelete) =>
-        courseService.deleteCourse(courseToDelete._id)
-            .then(status => this.setState(prevState => ({
-                courses: prevState
-                    .courses.filter(course => course !== courseToDelete)
-            })));
+    // deleteCourse = (courseToDelete) =>
+    //     courseService.deleteCourse(courseToDelete._id)
+    //         .then(status => this.setState(prevState => ({
+    //             courses: prevState
+    //                 .courses.filter(course => course !== courseToDelete)
+    //         })));
 
-    addCourse = (title) =>
-        courseService.createCourse({
-                                       title: title,
-                                       owner: 'me',
-                                       modified: (new Date()).toDateString()
-                                   })
-            .then(theActualNewCourse =>
-                      this.setState((prevState) => {
-                          return {
-                              courses: [
-                                  ...prevState.courses,
-                                  theActualNewCourse
-                              ]
-                          }
-                      }));
+    // addCourse = (title) =>
+    //     courseService.createCourse({
+    //                                    title: title,
+    //                                    owner: 'me',
+    //                                    modified: (new Date()).toDateString()
+    //                                })
+    //         .then(theActualNewCourse =>
+    //                   this.setState((prevState) => {
+    //                       return {
+    //                           courses: [
+    //                               ...prevState.courses,
+    //                               theActualNewCourse
+    //                           ]
+    //                       }
+    //                   }));
 
     render() {
         return (
             <div>
                 <div className="input-group mb-3">
                     <input className="form-control"
-                           onChange={(event) => this.setState({
-                                                                  newCourseTitle: event.target.value
-                                                              })}
-                           value={this.state.newCourseTitle}
-                           placeholder="Course Title"/>
+                        onChange={(event) => this.setState({
+                            newCourseTitle: event.target.value
+                        })}
+                        value={this.state.newCourseTitle}
+                        placeholder="Course Title" />
                     <button className="btn btn-outline-primary"
-                            onClick={
-                                () => this.addCourse(this.state.newCourseTitle)}>
+                        onClick={
+                            () => this.addCourse(this.state.newCourseTitle)}>
                         Add Course
                     </button>
                 </div>
@@ -73,13 +73,13 @@ export default class JobListContainer
                     <CourseTableComponent
                         setLayout={this.setLayout}
                         deleteCourse={this.deleteCourse}
-                        courses={this.state.courses}/>
+                        courses={this.state.courses} />
                 }
                 {
                     this.state.layout === 'grid' &&
                     <CourseGridComponent setLayout={this.setLayout}
-                                         deleteCourse={this.deleteCourse}
-                                         courses={this.state.courses}/>
+                        deleteCourse={this.deleteCourse}
+                        courses={this.state.courses} />
                 }
             </div>
         );

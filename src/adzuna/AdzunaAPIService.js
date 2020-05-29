@@ -12,16 +12,18 @@ export default class AdzunaAPIService {
         return this.myInstance;
     }
 
-    searchMovie = (keyword, page = 1) =>
-        fetch(`${this.url
-                 + page}?app_id=${this.app_id}&app_key=${this.app_key}&what=${keyword}&content-type=application/json`)
+    searchMovie = (keyword, page = 1) => {
+        // console.log(`${this.url + page}?app_id=${this.app_id}&app_key=${this.app_key}&what=${keyword}&content-type=application/json`);
+        return fetch(`${this.url
+            + page}?app_id=${this.app_id}&app_key=${this.app_key}&what=${keyword}&content-type=application/json`)
             .then(response => response.json())
+    }
 
-// findAllWidgets = () =>
-//     widgets
-//
-// findWidgetById = widgetId => {
-//     return widgets.find(widget => widget.id == widgetId)
-// }
+    // findAllWidgets = () =>
+    //     widgets
+    //
+    // findWidgetById = widgetId => {
+    //     return widgets.find(widget => widget.id == widgetId)
+    // }
 
 }

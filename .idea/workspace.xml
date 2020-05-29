@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3c7a72a-20bf-4bb3-bf97-36db0206672e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/JobDetailComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/JobDetailComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/JobRowComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/JobRowComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/JobListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/JobListContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adzuna/AdzunaAPIService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/adzuna/AdzunaAPIService.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +68,10 @@
       <updated>1590552308339</updated>
       <workItem from="1590552309632" duration="19747000" />
       <workItem from="1590718490622" duration="1311000" />
+      <workItem from="1590719814338" duration="97000" />
+      <workItem from="1590735293601" duration="428000" />
+      <workItem from="1590737539469" duration="220000" />
+      <workItem from="1590739262242" duration="929000" />
     </task>
     <servers />
   </component>
