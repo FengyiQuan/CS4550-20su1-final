@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route} from "react-router-dom";
 import HomeComponent from "./HomeComponent";
-import JobListContainer from "../Containers/JobListContainer";
+import JobListContainer from "../containers/JobListContainer";
 
 export default class WhiteBoardComponent extends React.Component {
     render() {

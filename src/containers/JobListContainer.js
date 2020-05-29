@@ -1,6 +1,7 @@
 import React from "react";
 import service from "../adzuna/AdzunaAPIService";
-import JobTableComponent from "../Components/JobTableComponent";
+import JobTableComponent from "../components/JobTableComponent";
+import NoResultFoundComponent from "../components/NoResultFoundComponent";
 
 export default class JobListContainer
     extends React.Component {
@@ -69,7 +70,7 @@ export default class JobListContainer
                     />
                 }
                 {/*{*/}
-                {/*    this.state.layout === 'grid' &&*/}
+                {/*    this.state.layout === 'grid' && this.state.jobs.length !== 0&&*/}
                 {/*    <CourseGridComponent setLayout={this.setLayout}*/}
                 {/*                         deleteCourse={this.deleteCourse}*/}
                 {/*                         courses={this.state.courses}/>*/}
