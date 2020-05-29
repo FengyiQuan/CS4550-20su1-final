@@ -1,5 +1,5 @@
 import React from 'react';
-import service from "../adzuna/AdzunaAPIService";
+import {Link} from "react-router-dom";
 
 export default class HomeComponent
     extends React.Component {
@@ -14,13 +14,6 @@ export default class HomeComponent
     keywordChanged = (event) =>
         this.setState({keyword: event.target.value});
 
-
-    searchMovie = () => service.getInstance().searchMovie(this.state.keyword)
-        .then(response => this.renderMovies(response))
-        .catch(err => {
-            console.log(err);
-        });
-
     render() {
         return (
             <div>
@@ -31,21 +24,20 @@ export default class HomeComponent
                            className="form-control"
                            placeholder="keyword"/>
                     <div className="input-group-append">
-                        <button
-                            onClick={this.searchMovie}
-                            className="btn btn-primary">
-                            Search
-                        </button>
+                        {this.state.keyword !== '' &&
+                         <Link to={`/table/jobs/${this.state.keyword}/`}
+                               className="btn btn-primary">
+                             Search
+                         </Link>}
+                        {this.state.keyword === '' &&
+                         <Link to={`/`}
+                               className="btn btn-primary">
+                             Search
+                         </Link>}
+
                     </div>
                 </div>
-                <ul className="list-group">
-                    {
-                        this.state.movies.map(
-                            (movie, index) =>
-                                <li key={index} className="list-group-item">
-                                    {movie.title}</li>)
-                    }
-                </ul>
+
             </div>
         )
     }

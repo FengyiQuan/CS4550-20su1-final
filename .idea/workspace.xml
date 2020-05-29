@@ -5,10 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/HomeComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/HomeComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/JobRowComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/JobRowComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/JobTableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/JobTableComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/JobListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/JobListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adzuna/AdzunaAPIService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/adzuna/AdzunaAPIService.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +71,8 @@
       <workItem from="1590719814338" duration="97000" />
       <workItem from="1590735293601" duration="428000" />
       <workItem from="1590737539469" duration="220000" />
-      <workItem from="1590739262242" duration="3038000" />
+      <workItem from="1590739262242" duration="3273000" />
+      <workItem from="1590792249546" duration="1905000" />
     </task>
     <servers />
   </component>

@@ -13,14 +13,15 @@ export default class JobListContainer
     };
 
     componentDidMount() {
-        service.getInstance().searchJobs("").then(json => this.setState({jobs: json.results}));
+        service.getInstance().searchJobs(this.props.match.params.keyword)
+            .then(json => this.setState({jobs: json.results}));
     };
 
     // getSearchResult = () =>{
     //
-    //     console.log(service.getInstance().searchMovie("").then(json => this.setState({jobs: json})))
-    //     return service.getInstance().searchMovie("").then(json => this.setState({jobs: json}));
-    // }
+    //     console.log(service.getInstance().searchMovie("").then(json => this.setState({jobs:
+    // json}))) return service.getInstance().searchMovie("").then(json => this.setState({jobs:
+    // json})); }
 
     // componentDidUpdate(prevProps, prevState, snapshot) {
     //     if (prevProps.match.params.layout !== this.props.match.params.layout) {
@@ -58,7 +59,6 @@ export default class JobListContainer
     //                   }));
 
     render() {
-        // console.log(this.state.jobs)
         return (
             <div>
                 {

@@ -6,11 +6,12 @@ import JobDetailComponent from "./Components/JobDetailComponent";
 import JobRowComponent from "./Components/JobRowComponent";
 import JobTableComponent from "./Components/JobTableComponent";
 import JobListContainer from "./Containers/JobListContainer";
+import WhiteBoardComponent from "./Components/WhiteBoardComponent";
 
 function App() {
     return (
         <div className="container">
-            <JobListContainer/>
+            <WhiteBoardComponent/>
         </div>
     );
 }
