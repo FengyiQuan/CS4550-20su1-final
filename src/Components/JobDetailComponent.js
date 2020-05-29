@@ -59,55 +59,64 @@ export default class JobDetailComponent extends React.Component {
     render() {
         return (
             <div>
-                {/*<div className="card">*/}
-                {/*    <img src="..." className="card-img-top" alt="..."/>*/}
-                {/*    <div className="card-body">*/}
-                {/*        <h5 className="card-title">Card title</h5>*/}
-                {/*        <p className="card-text">Company Location</p>*/}
-                {/*        <a href="#" className="btn btn-primary">Go somewhere</a>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <div className="jumbotron">
-                    <h1 className="display-4">Hello, world!</h1>
-                    <p className="lead">Company and location</p>
-                        <p>It uses utility classes for typography and spacing to space content out
-                            within the larger container.</p>
-                        <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                    <h1 className="display-4">
+                        {this.state.job.title}
+                    </h1>
+                    <h2 className="lead form-group row">
+                        <span className="col-sm-6">
+                            <i className="fa fa-building pr-3"/>
+                            {this.state.job.company.display_name}
+                        </span>
+                        <span className="col-sm-6">
+                            <i className="fa fa-map-marker pr-3"/>
+                            {this.state.job.location.display_name}
+                        </span>
+                    </h2>
+                    <p>It uses utility classes for typography and spacing to space content out
+                        within the larger container.</p>
+                    <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">Title</span>
                     <span className="col-sm-8">
-                        asjfpoajsfoajsdfoajsdpfoajdspfhsoipshoiashdfoa
+                        {this.state.job.title}
                     </span>
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">Description</span>
                     <span className="col-sm-8">
-                        asjfpoajsfoajsdfoajsdpfoajdspfhsoipshoiashdfoa
+                        {this.state.job.description}
+                    </span>
+                </div>
+                <div className="form-group row">
+                    <span className="col-sm-4">Salary</span>
+                    <span className="col-sm-8">
+                        {this.state.job.salary_min}{this.state.job.salary_max}
                     </span>
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">Contract time</span>
                     <span className="col-sm-8">
-                        asjfpoajsfoajsdfoajsdpfoajdspfhsoipshoiashdfoa
+                        {this.state.job.contract_time}
                     </span>
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">Category</span>
                     <span className="col-sm-8">
-                        asjfpoajsfoajsdfoajsdpfoajdspfhsoipshoiashdfoa
+                        {this.state.job.category.label}
                     </span>
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">Created by</span>
                     <span className="col-sm-8">
-                        asjfpoajsfoajsdfoajsdpfoajdspfhsoipshoiashdfoa
+                        {this.state.job.created}
                     </span>
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">ID</span>
                     <span className="col-sm-8">
-                        asjfpoajsfoajsdfoajsdpfoajdspfhsoipshoiashdfoa
+                        {this.state.job.id}
                     </span>
                 </div>
 
