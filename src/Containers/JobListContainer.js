@@ -1,29 +1,34 @@
 import React from "react";
+import service from "../adzuna/AdzunaAPIService";
+import JobTableComponent from "../Components/JobTableComponent";
 
 export default class JobListContainer
     extends React.Component {
     state = {
-        layout: this.props.match.params.layout,
-        page: 0,
+        layout: "table",
+        // this.props.match.params.layout,
+        page: 1,
         jobs: [],
         newCourseTitle: 'New Title'
     };
 
-    // componentDidMount() {
-    //     courseService.findAllCourses()
-    //         .then(actualArrayOfCourses =>
-    //                   this.setState({
-    //                                     courses: actualArrayOfCourses
-    //                                 }))
-    // };
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.match.params.layout !== this.props.match.params.layout) {
-            this.setState({
-                layout: this.props.match.params.layout
-            })
-        }
+    componentDidMount() {
+        service.getInstance().searchJobs("").then(json => this.setState({jobs: json.results}));
     };
+
+    // getSearchResult = () =>{
+    //
+    //     console.log(service.getInstance().searchMovie("").then(json => this.setState({jobs: json})))
+    //     return service.getInstance().searchMovie("").then(json => this.setState({jobs: json}));
+    // }
+
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (prevProps.match.params.layout !== this.props.match.params.layout) {
+    //         this.setState({
+    //                           layout: this.props.match.params.layout
+    //                       })
+    //     }
+    // };
 
     setLayout = (layout) => {
         this.props.history.push(`/${layout}/jobs`)
@@ -53,34 +58,22 @@ export default class JobListContainer
     //                   }));
 
     render() {
+        // console.log(this.state.jobs)
         return (
             <div>
-                <div className="input-group mb-3">
-                    <input className="form-control"
-                        onChange={(event) => this.setState({
-                            newCourseTitle: event.target.value
-                        })}
-                        value={this.state.newCourseTitle}
-                        placeholder="Course Title" />
-                    <button className="btn btn-outline-primary"
-                        onClick={
-                            () => this.addCourse(this.state.newCourseTitle)}>
-                        Add Course
-                    </button>
-                </div>
                 {
                     this.state.layout === 'table' &&
-                    <CourseTableComponent
+                    <JobTableComponent
+                        jobs={this.state.jobs}
                         setLayout={this.setLayout}
-                        deleteCourse={this.deleteCourse}
-                        courses={this.state.courses} />
+                    />
                 }
-                {
-                    this.state.layout === 'grid' &&
-                    <CourseGridComponent setLayout={this.setLayout}
-                        deleteCourse={this.deleteCourse}
-                        courses={this.state.courses} />
-                }
+                {/*{*/}
+                {/*    this.state.layout === 'grid' &&*/}
+                {/*    <CourseGridComponent setLayout={this.setLayout}*/}
+                {/*                         deleteCourse={this.deleteCourse}*/}
+                {/*                         courses={this.state.courses}/>*/}
+                {/*}*/}
             </div>
         );
     }

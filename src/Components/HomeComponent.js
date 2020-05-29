@@ -7,20 +7,13 @@ export default class HomeComponent
     constructor(props) {
         super(props);
         this.state = {
-            keyword: '',
-            movies: [{'title': 123}]
+            keyword: ''
         }
     }
 
     keywordChanged = (event) =>
         this.setState({keyword: event.target.value});
 
-    renderMovies = (response) => {
-        {console.log(response.results)
-        this.setState({
-                          movies: response.results
-                      });}
-    };
 
     searchMovie = () => service.getInstance().searchMovie(this.state.keyword)
         .then(response => this.renderMovies(response))
