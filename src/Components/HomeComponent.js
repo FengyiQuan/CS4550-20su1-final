@@ -16,7 +16,7 @@ export default class HomeComponent
 
     render() {
         return (
-            <div>
+            <div className="jumbotron">
                 <h2>Search Jobs</h2>
                 <div className="input-group">
                     <input value={this.state.keyword}
