@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default class WikiComponent
     extends React.Component {
@@ -12,24 +12,24 @@ export default class WikiComponent
             "salary_min": 24565.21,
             "latitude": 51.270302,
             "location":
-            {
-                "__CLASS__":
-                    "Adzuna::API::Response::Location",
-                "display_name":
-                    "Maidstone, Kent",
-                "area":
-                    ["UK", "South East England", "Kent", "Maidstone"]
-            }
+                {
+                    "__CLASS__":
+                        "Adzuna::API::Response::Location",
+                    "display_name":
+                        "Maidstone, Kent",
+                    "area":
+                        ["UK", "South East England", "Kent", "Maidstone"]
+                }
             ,
             "salary_max":
                 24565.21,
             "__CLASS__":
                 "Adzuna::API::Response::Job",
             "company":
-            {
-                "display_name": "Just Eat",
-                "__CLASS__": "Adzuna::API::Response::Company"
-            }
+                {
+                    "display_name": "Just Eat",
+                    "__CLASS__": "Adzuna::API::Response::Company"
+                }
             ,
             "title":
                 "Bike Courier",
@@ -46,53 +46,66 @@ export default class WikiComponent
             "created":
                 "2019-07-04T10:36:07Z",
             "category":
-            {
-                "__CLASS__":
-                    "Adzuna::API::Response::Category", "tag":
-                    "other-general-jobs", "label":
-                    "Other/General Jobs"
-            }
+                {
+                    "__CLASS__":
+                        "Adzuna::API::Response::Category", "tag":
+                        "other-general-jobs", "label":
+                        "Other/General Jobs"
+                }
         }
-    }
+    };
 
     render() {
         return (
             <div>
                 <h1>wiki</h1>
                 <ul>
-                    <li>Azuna
-<ul>
+                    <li>
+                        <a href="https://developer.adzuna.com/docs/search">Azuna</a>
+                        <ul>
                             <li>job search api based on job keyword and location</li>
                         </ul>
                     </li>
                     <li>Search criteria
-<ul>
+                        <ul>
                             <li>for now just type keyword for desired job position</li>
-                            <li>the keyword also supports the location when it is provided in searchbar</li>
+                            <li>the keyword also supports the location when it is provided in
+                                searchbar
+                            </li>
                         </ul>
                     </li>
                     <li>example query:
-<ul>
+                        <ul>
                             <li>
                                 <p>keyword: software</p>
                                 <ul>
-                                    <li>would query jobs on software and json containes raw data, then it is parsed</li>
-                                </ul>
-
-                                <ul>
-                                    <li>keyword: England, a subset of a returned json would be                 "area": [
-                                    "UK",
-                                    "North East England"
-                ]</li>
-                                </ul>
-
-                                <ul>
-                                    <li>the summary result would be a list of brief information: company, title, and location</li>
-                                    <li>the detailed page would provide additional information like salary, description with url of /_id
-                                        example: <Link to='/detail/1533798912'>Example Detailed page</Link>
+                                    <li>would query jobs on software and json containes raw data,
+                                        then it is parsed
                                     </li>
-                                    <li> One example here is the keyword search for software to make a brief joblist is:
-                                        <Link to='/table/jobs?keyword=software'>Example Job list</Link>
+                                </ul>
+
+                                <ul>
+                                    <li>keyword: England, a subset of a returned json would be
+                                        "area": [
+                                        "UK",
+                                        "North East England"
+                                        ]
+                                    </li>
+                                </ul>
+
+                                <ul>
+                                    <li>the summary result would be a list of brief information:
+                                        company, title, and location
+                                    </li>
+                                    <li>the detailed page would provide additional information like
+                                        salary, description with url of /_id
+                                        example: <Link to='/detail/1533798912'>Example Detailed
+                                            page</Link>
+                                    </li>
+                                    <li> One example here is the keyword search for software to make
+                                        a brief joblist is:
+                                        <Link to='/table/jobs?keyword=software'>Example Job
+                                            list</Link>
                                     </li>
 
                                     <li>a detailed page example would rendered as following</li>
@@ -103,17 +116,19 @@ export default class WikiComponent
                                             </h1>
                                             <h2 className="lead form-group row">
                                                 <span className="col-sm-6">
-                                                    <i className="fa fa-building pr-3" />
+                                                    <i className="fa fa-building pr-3"/>
                                                     {this.state.job.company.display_name}
                                                 </span>
                                                 <span className="col-sm-6">
-                                                    <i className="fa fa-map-marker pr-3" />
+                                                    <i className="fa fa-map-marker pr-3"/>
                                                     {this.state.job.location.display_name}
                                                 </span>
                                             </h2>
-                                            <p>It uses utility classes for typography and spacing to space content out
-                        within the larger container.</p>
-                                            <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                                            <p>It uses utility classes for typography and spacing to
+                                                space content out
+                                                within the larger container.</p>
+                                            <a className="btn btn-primary btn-lg" href="#"
+                                               role="button">Learn more</a>
                                         </div>
                                         <div className="form-group row">
                                             <span className="col-sm-4">Title</span>
@@ -169,7 +184,6 @@ export default class WikiComponent
             </div>
         )
     }
-
 
 }
 
