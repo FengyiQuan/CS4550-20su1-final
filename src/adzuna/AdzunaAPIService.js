@@ -13,7 +13,6 @@ export default class AdzunaAPIService {
     }
 
 
-    //important:使用时需要再使用一个。then 把promise变成别的
     searchJobs = (keyword, page = 1) => {
         return fetch(`${this.url
             + page}?app_id=${this.app_id}&app_key=${this.app_key}&what=${keyword}&content-type=application/json`)

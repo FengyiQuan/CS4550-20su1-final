@@ -6,7 +6,11 @@ export default class JobDetailComponent extends React.Component {
         super(props);
         this.state = {
             editing: false,
-            job: {}
+            job: {},
+            location: {},
+            category: {},
+            company: {}
+
         }
 
     }
@@ -14,8 +18,10 @@ export default class JobDetailComponent extends React.Component {
     componentDidMount() {
 
         service.getInstance().searchJobs(this.props.match.params.id)
-            .then(json => this.setState({job: json.results[0]}));
-
+            .then(json => this.setState({ job: json.results[0] }))
+            .then(() => this.setState({ location: this.state.job["location"] }))
+            .then(() => this.setState({ category: this.state.job["category"] }))
+            .then(() => this.setState({ company: this.state.job["company"] }))
     };
 
     render() {
@@ -33,12 +39,14 @@ export default class JobDetailComponent extends React.Component {
                     </h1>
                     <h2 className="lead form-group row">
                         <span className="col-sm-6">
-                            <i className="fa fa-building pr-3"/>
-                            {/*{this.state.job.company.display_name}*/}
+                            <i className="fa fa-building pr-3" />
+                            {this.state.company.display_name}
                         </span>
                         <span className="col-sm-6">
-                            <i className="fa fa-map-marker pr-3"/>
-                            {/*{this.state.job.location.display_name}*/}
+                            <i className="fa fa-map-marker pr-3" />
+                            {this.state.location.display_name}
+                            {/* {console.log(this.state.location.display_name)} */}
+                            {/* {console.log(this.state.job)} */}
                         </span>
                     </h2>
                     <p>It uses utility classes for typography and spacing to space content out
@@ -71,9 +79,9 @@ export default class JobDetailComponent extends React.Component {
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">Category</span>
-                    {/*<span className="col-sm-8">*/}
-                    {/*    {this.state.job.category.label}*/}
-                    {/*</span>*/}
+                    <span className="col-sm-8">
+                        {this.state.category.label}
+                    </span>
                 </div>
                 <div className="form-group row">
                     <span className="col-sm-4">Created by</span>
