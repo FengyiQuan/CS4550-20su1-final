@@ -1,6 +1,6 @@
 export default class AdzunaAPIService {
     static myInstance = null;
-    url = "http://api.adzuna.com/v1/api/jobs/gb/search/";
+    url = "https://api.adzuna.com/v1/api/jobs/gb/search/";
     app_id = 28179437;
     app_key = "f9dea5dad6f8a1a0f33d402572c8d3b1";
 

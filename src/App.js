@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import WhiteBoardComponent from "./components/WhiteBoardComponent";
+import Jobigger from "./components/Jobigger";
 
 function App() {
     return (
         <div className="container">
-            <WhiteBoardComponent/>
+            <Jobigger />
         </div>
     );
 }

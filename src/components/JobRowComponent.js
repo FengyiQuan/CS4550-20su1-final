@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class JobRowComponent extends React.Component {
     constructor(props) {
@@ -12,14 +12,14 @@ export default class JobRowComponent extends React.Component {
     render() {
         return (
             <tr>
-                <td>{this.state.job.title}</td>
+                <td>{this.state.job.title.replace(/(<([^>]+)>)/ig, '')}</td>
                 <td className="d-none d-sm-table-cell">{this.state.job.company.display_name}</td>
                 <td className="d-none d-md-table-cell">{this.state.job.location.display_name}</td>
                 <td>
                     <Link to={`/detail/${this.state.job.id}`}>
                         <button className="btn btn-primary"
-                                onClick={this.ok}>
-                            <i className="fa fa-angle-double-right"/>
+                            onClick={this.ok}>
+                            <i className="fa fa-angle-double-right" />
                         </button>
                     </Link>
                 </td>
