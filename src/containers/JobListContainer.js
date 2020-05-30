@@ -14,7 +14,9 @@ export default class JobListContainer
     };
 
     componentDidMount() {
-        service.getInstance().searchJobs(this.props.match.params.keyword)
+        const query = this.props.location.search;
+        const word = query.split('=').pop();
+        service.getInstance().searchJobs(word)
             .then(json => this.setState({jobs: json.results}));
     };
 

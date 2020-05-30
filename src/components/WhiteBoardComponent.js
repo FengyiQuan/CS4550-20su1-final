@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route} from "react-router-dom";
 import HomeComponent from "./HomeComponent";
 import JobListContainer from "../containers/JobListContainer";
+import JobDetailComponent from "./JobDetailComponent";
 
 export default class WhiteBoardComponent extends React.Component {
     render() {
@@ -17,9 +18,26 @@ export default class WhiteBoardComponent extends React.Component {
                         component={HomeComponent}/>
 
                     <Route
-                        path='/:layout/jobs/:keyword'
+                        path='/:layout/jobs'
                         exact={true}
                         component={JobListContainer}/>
+
+                    {/*<Route*/}
+                    {/*    path='/joblist'*/}
+                    {/*    exact={true}*/}
+                    {/*    component={JobListContainer}*/}
+                    {/*/>*/}
+
+                    {/*<Route*/}
+                    {/*    path='/PROTOTYPE'*/}
+                    {/*    exact={true}*/}
+                    {/*    component={WikiComponent}*/}
+                    {/*/>*/}
+                    <Route
+                        path='/detail/:id'
+                        exact={true}
+                        component={JobDetailComponent}
+                    />
 
                     {/*<Route*/}
                     {/*    path='/editor'*/}

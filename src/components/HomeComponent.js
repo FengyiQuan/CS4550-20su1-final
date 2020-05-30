@@ -25,7 +25,7 @@ export default class HomeComponent
                            placeholder="keyword"/>
                     <div className="input-group-append">
                         {this.state.keyword !== '' &&
-                         <Link to={`/table/jobs/${this.state.keyword}/`}
+                         <Link to={`/table/jobs?keyword=${this.state.keyword}`}
                                className="btn btn-primary">
                              Search
                          </Link>}

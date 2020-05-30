@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export default class CourseRowComponent extends React.Component {
+export default class JobRowComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,10 +16,12 @@ export default class CourseRowComponent extends React.Component {
                 <td className="d-none d-sm-table-cell">{this.state.job.company.display_name}</td>
                 <td className="d-none d-md-table-cell">{this.state.job.location.display_name}</td>
                 <td>
-                    <button className="btn btn-primary"
-                            onClick={this.ok}>
-                        <i className="fa fa-angle-double-right"/>
-                    </button>
+                    <Link to={`/detail/${this.state.job.id}`}>
+                        <button className="btn btn-primary"
+                                onClick={this.ok}>
+                            <i className="fa fa-angle-double-right"/>
+                        </button>
+                    </Link>
                 </td>
             </tr>
         )
