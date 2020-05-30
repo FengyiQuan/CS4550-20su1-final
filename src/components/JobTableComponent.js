@@ -14,9 +14,6 @@ export default class JobTableComponent
 
     render() {
         return (<div>
-                {
-                    this.props.jobs.length === 0 && <NoResultFoundComponent/>
-                }
                 {this.props.jobs.length !== 0 &&
                  <table className="table table-striped">
                      <thead>

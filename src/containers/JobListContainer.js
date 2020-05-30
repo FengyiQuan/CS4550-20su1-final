@@ -10,14 +10,18 @@ export default class JobListContainer
         // this.props.match.params.layout,
         page: 1,
         jobs: [],
-        newCourseTitle: 'New Title'
+        newCourseTitle: 'New Title',
+        count: 1
     };
 
     componentDidMount() {
         const query = this.props.location.search;
         const word = query.split('=').pop();
         service.getInstance().searchJobs(word)
-            .then(json => this.setState({jobs: json.results}));
+            .then(json => this.setState({
+                                            jobs: json.results,
+                                            count: json.count
+                                        }));
     };
 
     // getSearchResult = () =>{
@@ -64,6 +68,9 @@ export default class JobListContainer
     render() {
         return (
             <div>
+                {
+                    this.state.count === 0 && <NoResultFoundComponent/>
+                }
                 {
                     this.state.layout === 'table' &&
                     <JobTableComponent
