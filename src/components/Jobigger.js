@@ -4,15 +4,22 @@ import HomeComponent from "./HomeComponent";
 import JobListContainer from "../containers/JobListContainer";
 import JobDetailComponent from "./JobDetailComponent";
 import WikiComponent from './WikiComponent'
+import LoginComponent from "./LoginComponent";
+import SignUpComponent from "./SignUpComponent";
 
 export default class Jobigger extends React.Component {
     render() {
         return (
             <BrowserRouter>
                 <div>
-                    {/*<Route path="/login" exact={true} component={LoginComponent}/>*/}
-                    {/*<Route path="/register" exact={true} component={SignUpComponent}/>*/}
+                    <Route path="/login"
+                           exact={true}
+                           component={LoginComponent}/>
+                    <Route path="/register"
+                           exact={true}
+                           component={SignUpComponent}/>
                     {/*<Route path="/profile" exact={true} component={ProfileComponent}/>*/}
+
                     <Route
                         path='/'
                         exact={true}
