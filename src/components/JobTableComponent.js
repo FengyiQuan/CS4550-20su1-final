@@ -6,14 +6,9 @@ import NoResultFoundComponent from "./NoResultFoundComponent";
 export default class JobTableComponent
     extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-
-    }
-
     render() {
-        return (<div>
+        return (
+            <div>
                 {this.props.jobs.length !== 0 &&
                  <table className="table table-striped">
                      <thead>
@@ -26,14 +21,22 @@ export default class JobTableComponent
                              Location
                          </th>
                          <th>
-                             <button className="btn"><i className="fa fa-sort"/></button>
+                             <div className="btn-group">
+                                 <button className="btn"
+                                         onClick={() => this.props.setLayout('grid')}>
+                                     <i className="fa fa-th pr-2"/>
+                                 </button>
+                                 <button className="btn">
+                                     <i className="fa fa-sort"/>
+                                 </button>
+                             </div>
                          </th>
                      </tr>
                      </thead>
                      <tbody>
 
-                     {this.props.jobs.map(job => <JobRowComponent job={job}
-                                                                  key={job.id}/>)
+                     {
+                         this.props.jobs.map(job => <JobRowComponent job={job} key={job.id}/>)
                      }
 
                      </tbody>

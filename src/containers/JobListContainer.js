@@ -2,12 +2,12 @@ import React from "react";
 import service from "../adzuna/AdzunaAPIService";
 import JobTableComponent from "../components/JobTableComponent";
 import NoResultFoundComponent from "../components/NoResultFoundComponent";
+import JobGridComponent from "../components/JobGridComponent";
 
 export default class JobListContainer
     extends React.Component {
     state = {
-        layout: "table",
-        // this.props.match.params.layout,
+        layout: this.props.match.params.layout,
         page: 1,
         jobs: [],
         newCourseTitle: 'New Title',
@@ -30,16 +30,16 @@ export default class JobListContainer
     // json}))) return service.getInstance().searchMovie("").then(json => this.setState({jobs:
     // json})); }
 
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     if (prevProps.match.params.layout !== this.props.match.params.layout) {
-    //         this.setState({
-    //                           layout: this.props.match.params.layout
-    //                       })
-    //     }
-    // };
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.match.params.layout !== this.props.match.params.layout) {
+            this.setState({
+                              layout: this.props.match.params.layout
+                          })
+        }
+    };
 
     setLayout = (layout) => {
-        this.props.history.push(`/${layout}/jobs`)
+        this.props.history.push(`/${layout}/jobs/`)
     };
 
     // deleteCourse = (courseToDelete) =>
@@ -78,12 +78,12 @@ export default class JobListContainer
                         setLayout={this.setLayout}
                     />
                 }
-                {/*{*/}
-                {/*    this.state.layout === 'grid' && this.state.jobs.length !== 0&&*/}
-                {/*    <CourseGridComponent setLayout={this.setLayout}*/}
-                {/*                         deleteCourse={this.deleteCourse}*/}
-                {/*                         courses={this.state.courses}/>*/}
-                {/*}*/}
+                {
+                    this.state.layout === 'grid' &&
+                    <JobGridComponent jobs={this.state.jobs}
+                                      setLayout={this.setLayout}
+                    />
+                }
             </div>
         );
     }

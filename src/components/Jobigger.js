@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import HomeComponent from "./HomeComponent";
 import JobListContainer from "../containers/JobListContainer";
 import JobDetailComponent from "./JobDetailComponent";
@@ -16,12 +16,7 @@ export default class Jobigger extends React.Component {
                     <Route
                         path='/'
                         exact={true}
-                        component={HomeComponent} />
-
-                    <Route
-                        path='/:layout/jobs'
-                        exact={true}
-                        component={JobListContainer} />
+                        component={HomeComponent}/>
 
                     <Route
                         path='/PROTOTYPE'
@@ -29,17 +24,12 @@ export default class Jobigger extends React.Component {
                         component={WikiComponent}
                     />
 
-                    {/*<Route*/}
-                    {/*    path='/joblist'*/}
-                    {/*    exact={true}*/}
-                    {/*    component={JobListContainer}*/}
-                    {/*/>*/}
+                    <Route
+                        path='/:layout/jobs'
+                        exact={true}
+                        component={JobListContainer}/>
 
-                    {/*<Route*/}
-                    {/*    path='/PROTOTYPE'*/}
-                    {/*    exact={true}*/}
-                    {/*    component={WikiComponent}*/}
-                    {/*/>*/}
+
                     <Route
                         path='/detail/:id'
                         exact={true}
