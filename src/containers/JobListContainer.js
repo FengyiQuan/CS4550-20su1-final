@@ -15,31 +15,31 @@ export default class JobListContainer
     };
 
     componentDidMount() {
+        this.getSearchResult();
+    };
+
+    getSearchResult = () => {
         const query = this.props.location.search;
         const word = query.split('=').pop();
-        service.getInstance().searchJobs(word)
+        service.getInstance().searchJobs(word, this.state.page)
             .then(json => this.setState({
                                             jobs: json.results,
                                             count: json.count
                                         }));
     };
 
-    // getSearchResult = () =>{
-    //
-    //     console.log(service.getInstance().searchMovie("").then(json => this.setState({jobs:
-    // json}))) return service.getInstance().searchMovie("").then(json => this.setState({jobs:
-    // json})); }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.match.params.layout !== this.props.match.params.layout) {
             this.setState({
                               layout: this.props.match.params.layout
                           })
+        } else if (prevState.page !== this.state.page) {
+            this.getSearchResult();
         }
     };
 
     setLayout = (layout) => {
-        this.props.history.push(`/${layout}/jobs/`)
+        this.props.history.push(`/${layout}/jobs${this.props.location.search}`)
     };
 
     // deleteCourse = (courseToDelete) =>
@@ -84,6 +84,15 @@ export default class JobListContainer
                                       setLayout={this.setLayout}
                     />
                 }
+                <button onClick={() => this.setState(
+                    {page: this.state.page === 1 ? this.state.page : this.state.page - 1})}>
+                    上一页
+                </button>
+
+                < button onClick={() => this.setState({page: this.state.page + 1})}>
+                    下一页
+                </button>
+
             </div>
         );
     }
