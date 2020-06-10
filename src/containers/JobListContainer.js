@@ -84,14 +84,14 @@ export default class JobListContainer
                                       setLayout={this.setLayout}
                     />
                 }
-                <div>当前页: {this.state.page}</div>
+                <div>Current: {this.state.page}</div>
                 <button onClick={() => this.setState(
                     {page: this.state.page === 1 ? this.state.page : this.state.page - 1})}>
-                    上一页
+                    Previous Page
                 </button>
 
                 < button onClick={() => this.setState({page: this.state.page + 1})}>
-                    下一页
+                    Next Page
                 </button>
 
             </div>
