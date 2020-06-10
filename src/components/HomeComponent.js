@@ -7,17 +7,22 @@ export default class HomeComponent
     constructor(props) {
         super(props);
         this.state = {
-            keyword: ''
+            keyword: '',
+            role: 'visitor'
         }
     }
 
     keywordChanged = (event) =>
         this.setState({keyword: event.target.value});
 
+    changeRole = (role) =>
+        this.setState({role: role});
+
     render() {
         return (
             <div className="jumbotron">
                 <h2>Search Jobs</h2>
+                <h3>as {this.state.role}</h3>
                 <Link to='/PROTOTYPE'>WIKI</Link>
                 <div className="input-group">
                     <input value={this.state.keyword}

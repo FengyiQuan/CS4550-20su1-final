@@ -11,6 +11,7 @@ export default class LoginComponent extends React.Component {
     }
 
     render() {
+        console.log(this)
         return (
             <div>
                 <h1>Sign In</h1>

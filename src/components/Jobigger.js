@@ -17,7 +17,10 @@ export default class Jobigger extends React.Component {
                            component={LoginComponent}/>
                     <Route path="/register"
                            exact={true}
-                           component={SignUpComponent}/>
+                           // render={props => (
+                           //     <SignUpComponent {...props}/>)}
+                        component={SignUpComponent}
+                           />
                     {/*<Route path="/profile" exact={true} component={ProfileComponent}/>*/}
 
                     <Route
