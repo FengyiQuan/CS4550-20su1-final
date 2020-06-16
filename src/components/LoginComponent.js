@@ -10,6 +10,29 @@ export default class LoginComponent extends React.Component {
         }
     }
 
+    login = () => {
+        fetch("http://localhost:8080/api/login", {
+            body: JSON.stringify({
+                                     username: this.state.username,
+                                     password: this.state.password
+                                 }),
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',
+            credentials: "include"
+        }).then(response => response.json())
+            .catch(e => {
+                this.props.history.push("/login")
+            })
+            .then(currentUser => {
+                if (currentUser) {
+                    this.props.history.push("/profile")
+                }
+            })
+
+    }
+
     render() {
         console.log(this)
         return (
@@ -50,10 +73,10 @@ export default class LoginComponent extends React.Component {
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label"/>
                         <div className="col-sm-10">
-                            <a className="btn btn-primary btn-block"
-                               href="#">
+                            <button className="btn btn-primary btn-block"
+                                    onClick={this.login}>
                                 Sign in
-                            </a>
+                            </button>
                             <div className="row">
                                 <div className="col-6">
                                     <a href="#">Forgot Password?</a>
