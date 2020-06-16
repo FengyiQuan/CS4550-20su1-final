@@ -46,7 +46,7 @@ export default class HomeComponent
                     </form>
 
                 </div>
-                <div className="form-group row">
+                <div className="form-group row ">
                     <div className="col-6">
                         <Link to={`/login`}>Sign in</Link>
                     </div>
