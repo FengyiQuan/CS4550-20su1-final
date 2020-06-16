@@ -35,4 +35,4 @@ const ReviewReducer = (state = initialState, action) => {
   }
 };
 
-export default ReviewReducer
+export default ReviewReducer;

@@ -19,7 +19,7 @@ export default class RegisterComponent extends React.Component {
             method: 'POST',
             credentials: "include"
         }).then(response => response.json())
-            .then(currentUser => this.props.history.push("/profile"))
+            .then(currentUser => this.props.history.push("/profiles"))
     }
 
     render() {
