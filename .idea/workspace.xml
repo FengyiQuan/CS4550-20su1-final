@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3c7a72a-20bf-4bb3-bf97-36db0206672e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ProfileComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RegisterComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Jobigger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Jobigger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

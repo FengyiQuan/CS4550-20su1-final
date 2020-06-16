@@ -6,6 +6,8 @@ import JobDetailComponent from "./JobDetailComponent";
 import WikiComponent from './WikiComponent'
 import LoginComponent from "./LoginComponent";
 import SignUpComponent from "./SignUpComponent";
+import RegisterComponent from "./RegisterComponent";
+import ProfileComponent from "./ProfileComponent";
 
 export default class Jobigger extends React.Component {
     render() {
@@ -17,11 +19,8 @@ export default class Jobigger extends React.Component {
                            component={LoginComponent}/>
                     <Route path="/register"
                            exact={true}
-                           // render={props => (
-                           //     <SignUpComponent {...props}/>)}
-                        component={SignUpComponent}
-                           />
-                    {/*<Route path="/profile" exact={true} component={ProfileComponent}/>*/}
+                           component={RegisterComponent}/>
+                    <Route path="/profile" exact={true} component={ProfileComponent}/>
 
                     <Route
                         path='/'
@@ -31,8 +30,7 @@ export default class Jobigger extends React.Component {
                     <Route
                         path='/PROTOTYPE'
                         exact={true}
-                        component={WikiComponent}
-                    />
+                        component={WikiComponent}/>
 
                     <Route
                         path='/:layout/jobs'
