@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
-@import "components/HomeComponent.css";
+@import "styles/HomeComponent.css";
+@import "styles/LoginComponent.css";
 
 
 body {
@@ -16,3 +17,18 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* customize !!! */
+
+body {
+    margin: 0;
+    background-color: #99CCCC;
+}
+
+
+
+
+
+
+
+

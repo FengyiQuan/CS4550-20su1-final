@@ -12,67 +12,53 @@ export default class HomeComponent
         }
     }
 
-    keywordChanged = (event) =>
-        this.setState({keyword: event.target.value});
-
-    changeRole = (role) =>
-        this.setState({role: role});
-
     render() {
         return (
-            <div>
-                <h2>Search Jobs</h2>
-                <h3>as {this.state.role}</h3>
-                <Link to='/PROTOTYPE'>WIKI</Link>
-                {/*<div className="input-group">*/}
-                {/*<input value={this.state.keyword}*/}
-                {/*       onChange={this.keywordChanged}*/}
-                {/*       className="form-control"*/}
-                {/*       placeholder="keyword"/>*/}
+            <div className="form-group">
+                <div className="form-group">
+                    <div className="row" id='cover'>
+                        <form>
+                            <div className='tb'>
+                                <div className='td'>
+                                    <input value={this.state.keyword}
+                                           onChange={(event) =>
+                                               this.setState({keyword: event.target.value})}
+                                           type="text"
+                                           placeholder="Search"
+                                           className='none-outline searchInput'
+                                           required/>
+                                </div>
+                                <div className='td' id='s-cover'>
 
-                <div id="cover">
-                    <form method="get" action="">
-                        <div className="tb">
-                            <div className="td">
-                                <input type="text" placeholder="Search" required/>
+                                    <Link
+                                        to={`/table/jobs?keyword=${this.state.keyword}`}>
+                                        <button
+                                            className='searchBtn none-outline' type="submit">
+                                            <div id='s-circle'/>
+                                            <span className='searchSpan'/>
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="td" id="s-cover">
-                                <button type="submit">
-                                    <div id="s-circle"/>
-                                    <span/>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-                <div className="form-group row ">
-                    <div className="col-6">
-                        <Link to={`/login`}>Sign in</Link>
+                        </form>
                     </div>
-                    <div className="col-6">
+                    <div className="row float-right ">
+                        <Link to='/PROTOTYPE'
+                              className="home-link pr-5">
+                            WIKI
+                        </Link>
+                        <Link to={`/login`}
+                              className="home-link pr-5">
+                            Sign In
+                        </Link>
+
                         <Link to={`/register`}
-                              className="float-right">Sign up</Link>
+                              className="home-link">
+                            Sign Up
+                        </Link>
                     </div>
                 </div>
-                {/*<div className="input-group-append">*/}
-                {/*    {this.state.keyword !== '' &&*/}
-                {/*     <Link to={`/table/jobs?keyword=${this.state.keyword}`}*/}
-                {/*           className="btn btn-primary">*/}
-                {/*         Search*/}
-                {/*     </Link>}*/}
-                {/*    {this.state.keyword === '' &&*/}
-                {/*     <Link to={`/`}*/}
-                {/*           className="btn btn-primary">*/}
-                {/*         Search*/}
-                {/*     </Link>}*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                <div>
+            </div>);
 
-                </div>
-
-            </div>
-        )
     }
 }

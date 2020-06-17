@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3c7a72a-20bf-4bb3-bf97-36db0206672e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeComponent.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HomeComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/LoginComponent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegisterComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/HomeComponent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +54,15 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Chen\Desktop\4553\CS4550-20su1-final\src" />
-      <recent name="$PROJECT_DIR$/src/Containers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/node_modules" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/styles" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/HomeComponent" />
+      <recent name="C:\Users\Chen\Desktop\4553\CS4550-20su1-final\src" />
+      <recent name="$PROJECT_DIR$/src/Containers" />
     </key>
   </component>
   <component name="RunDashboard">
