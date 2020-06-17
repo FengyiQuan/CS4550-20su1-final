@@ -63,8 +63,7 @@ export default class HomeComponent
                                                this.setState({keyword: event.target.value})}
                                            type="text"
                                            placeholder="Search"
-                                           className='none-outline searchInput'
-                                           required/>
+                                           className='none-outline searchInput'/>
                                 </div>
                                 <div className='td' id='s-cover'>
 

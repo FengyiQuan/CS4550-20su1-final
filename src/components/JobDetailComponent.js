@@ -44,9 +44,8 @@ export default class JobDetailComponent extends React.Component {
         // console.log(com_name['display_name'])
         return (
             <div>
-                <div className="jumbotron px-5" style={{color: "#FFFFFF"}}>
-                    <h1 className="display-4"
-                        style={{color: "black"}}>
+                <div className="jumbotron px-5">
+                    <h1 className="display-4">
                         {this.state.job.title}
                     </h1>
                     <h2 className="lead form-group row">
@@ -81,56 +80,57 @@ export default class JobDetailComponent extends React.Component {
                                    {currentReview: event.target.value})}>
                      </textarea>
                         <button className='btn btn-warning form-control'
-                        onClick={()=>{
-                            this.setState({editing: false})
-                        }}>
+                                onClick={() => {
+                                    this.setState({editing: false})
+                                }}>
                             <i className='fa fa-pencil'/>
                         </button>
                     </div>
                 }
-
-                <div className="form-group row px-5">
-                    <span className="col-sm-4">Title</span>
-                    <span className="col-sm-8">
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item px-5">
+                        <span className="col-sm-4">Title</span>
+                        <span className="col-sm-8">
                         {this.state.job.title}
                     </span>
-                </div>
-                <div className="form-group row px-5">
-                    <span className="col-sm-4">Description</span>
-                    <span className="col-sm-8">
+                    </li>
+                    <li className="list-group-item form-group px-5">
+                        <span className="col-sm-4">Description</span>
+                        <span className="col-sm-8">
                         {this.state.job.description}
                     </span>
-                </div>
-                <div className="form-group row px-5">
-                    <span className="col-sm-4">Salary</span>
-                    <span className="col-sm-8">
+                    </li>
+                    <div className="form-group row px-5">
+                        <span className="col-sm-4">Salary</span>
+                        <span className="col-sm-8">
                         {this.state.job.salary_min}{this.state.job.salary_max}
                     </span>
-                </div>
-                <div className="form-group row px-5">
-                    <span className="col-sm-4">Contract time</span>
-                    <span className="col-sm-8">
+                    </div>
+                    <div className="form-group row px-5">
+                        <span className="col-sm-4">Contract time</span>
+                        <span className="col-sm-8">
                         {this.state.job.contract_time}
                     </span>
-                </div>
-                <div className="form-group row px-5">
-                    <span className="col-sm-4">Category</span>
-                    <span className="col-sm-8">
+                    </div>
+                    <div className="form-group row px-5">
+                        <span className="col-sm-4">Category</span>
+                        <span className="col-sm-8">
                         {this.state.category.label}
                     </span>
-                </div>
-                <div className="form-group row px-5">
-                    <span className="col-sm-4">Created by</span>
-                    <span className="col-sm-8">
+                    </div>
+                    <div className="form-group row px-5">
+                        <span className="col-sm-4">Created by</span>
+                        <span className="col-sm-8">
                         {this.state.job.created}
                     </span>
-                </div>
-                <div className="form-group row px-5">
-                    <span className="col-sm-4">ID</span>
-                    <span className="col-sm-8">
+                    </div>
+                    <div className="form-group row px-5">
+                        <span className="col-sm-4">ID</span>
+                        <span className="col-sm-8">
                         {this.state.job.id}
                     </span>
-                </div>
+                    </div>
+                </ul>
 
 
                 <ReviewListContainer {...this.props.match}/>
