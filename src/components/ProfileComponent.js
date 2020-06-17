@@ -7,24 +7,25 @@ export default class ProfileComponent extends React.Component {
     };
 
     componentDidMount() {
-        fetch("http://localhost:8080/api/profile", {
-            method: 'POST',
-            credentials: "include"
-        })
-            .then(response => {
-                return response.json()
-            })
-            .catch(e => {
-                this.props.history.push("/")
-            })
-            .then(user => {
-                if (user) {
-                    this.setState({
-                                      username: user.username,
-                                      password: user.password
-                                  })
-                }
-            })
+        // fetch("http://localhost:8080/api/profile", {
+        //     method: 'POST',
+        //     credentials: "include"
+        // })
+        //     .then(response => {
+        //         return response.json()
+        //     })
+        //     // .catch(e => {
+        //     //     this.props.history.push("/")
+        //     // })
+        //     .then(user => {
+        //         console.log(user)
+        //         if (user) {
+        //             this.setState({
+        //                               username: user.username,
+        //                               password: user.password
+        //                           })
+        //         }
+        //     })
     }
 
     update = () => {
@@ -68,13 +69,13 @@ export default class ProfileComponent extends React.Component {
                     onChange={(e) => this.setState({password: e.target.value})}
                     className="form-control"/>
                 <button
-                    onClick={this.update}
+                    onClick={() => this.update}
                     className="btn btn-primary">
                     Update
                 </button>
                 <button
                     className="btn btn-danger"
-                    onClick={this.logout}>
+                    onClick={() => this.logout}>
                     Sign out
                 </button>
             </div>

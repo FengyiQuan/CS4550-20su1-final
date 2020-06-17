@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b3c7a72a-20bf-4bb3-bf97-36db0206672e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/JobDetailComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/JobDetailComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Jobigger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Jobigger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProfileComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RegisterComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WikiComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WikiComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ReviewListComponet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ReviewListComponet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignUpComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +102,7 @@
       <workItem from="1591740483973" duration="2799000" />
       <workItem from="1591815851967" duration="86000" />
       <workItem from="1592296369426" duration="8570000" />
-      <workItem from="1592370271225" duration="1043000" />
+      <workItem from="1592370271225" duration="11643000" />
     </task>
     <servers />
   </component>

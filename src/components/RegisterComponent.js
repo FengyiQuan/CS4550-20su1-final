@@ -19,17 +19,15 @@ export default class RegisterComponent extends React.Component {
             method: 'POST',
             credentials: "include"
         }).then(response => response.json())
-            .then(currentUser => this.props.history.push("/profiles"))
-        console.log(this.props)
-    }
-    ;
+            .then(currentUser => this.props.history.push("/profile"))
+    };
 
     render() {
         return (
             <div className="login">
-                <p className="sign" align="center">
+                <div className="sign" align="center">
                     Register
-                </p>
+                </div>
                 <form className="form1">
                     <input className="login-input"
                            type="text"
