@@ -8,7 +8,7 @@ export default class HomeComponent
         super(props);
         this.state = {
             keyword: '',
-            role: 'visitor',
+            role: 'VISITOR',
             username: '',
             loggedin: false
         }

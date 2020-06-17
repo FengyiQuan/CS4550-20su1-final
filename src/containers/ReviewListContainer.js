@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {findReviewsForJob} from "../services/ReviewService";
+import {findReviewsForJob, findReviewByUsername, createReview} from "../services/ReviewService";
 import ReviewListComponent from "../components/ReviewListComponet";
 
 // +----------+-----------------------------------------------------+--+
@@ -21,6 +21,20 @@ const dispatchToPropertyMapper = (dispatch) => {
                 .then(reviewsForJob => dispatch({
                                                     type: 'FIND_REVIEWS_FOR_JOB',
                                                     actualReviews: reviewsForJob
+                                                }))
+        },
+        findReviewByUsername: (username) => {
+            findReviewByUsername(username)
+                .then(reviewsForJob => dispatch({
+                                                    type: 'FIND_REVIEW_BY_USERNAME',
+                                                    actualReviews: reviewsForJob
+                                                }))
+        },
+        createReview: (rid, review) => {
+            createReview(rid, review)
+                .then(newReview => dispatch({
+                                                    type: 'CREATE_REVIEW',
+                                                    newReview: newReview
                                                 }))
         }
     }

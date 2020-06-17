@@ -10,7 +10,8 @@ export default class JobDetailComponent extends React.Component {
             job: {},
             location: {},
             category: {},
-            company: {}
+            company: {},
+            currentReview: ''
         }
     }
 
@@ -23,19 +24,29 @@ export default class JobDetailComponent extends React.Component {
             .then(() => this.setState({location: this.state.job["location"]}))
             .then(() => this.setState({category: this.state.job["category"]}))
             .then(() => this.setState({company: this.state.job["company"]}))
-    };
+    }
+
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (prevState.job.id !== this.state.job.id) {
+    //         service.getInstance().searchJobs(this.props.match.params.id)
+    //             .then(json => this.setState({job: json.results[0]}))
+    //             .then(() => this.setState({location: this.state.job["location"]}))
+    //             .then(() => this.setState({category: this.state.job["category"]}))
+    //             .then(() => this.setState({company: this.state.job["company"]}))
+    //     }
+    // }
 
     render() {
         // console.log(this)
-        // console.log(this.state)
+        // console.log(this.state.currentReview)
         // console.log(com_name)
         // console.log(self.state.job.location.display_name)
         // console.log(com_name['display_name'])
         return (
             <div>
-                <div className="jumbotron px-5" style={{color : "#FFFFFF"}}>
+                <div className="jumbotron px-5" style={{color: "#FFFFFF"}}>
                     <h1 className="display-4"
-                    style={{color:"black"}}>
+                        style={{color: "black"}}>
                         {this.state.job.title}
                     </h1>
                     <h2 className="lead form-group row">
@@ -53,9 +64,31 @@ export default class JobDetailComponent extends React.Component {
                     <p>It uses utility classes for typography and spacing to space
                         content out
                         within the larger container.</p>
-                    <a className="btn btn-primary btn-lg" href="#" role="button">Learn
-                        more</a>
+                    <button className="btn btn-warning btn-lg"
+                            role="button"
+                            value={this.state.currentReview}
+                            onClick={() => this.setState({editing: true})}>
+                        Write Review
+                    </button>
                 </div>
+
+                {
+                    this.state.editing &&
+                    <div className='form-group row'>
+                     <textarea className='form-control'
+                               placeholder='Start your review!!'
+                               onChange={(event) => this.setState(
+                                   {currentReview: event.target.value})}>
+                     </textarea>
+                        <button className='btn btn-warning form-control'
+                        onClick={()=>{
+                            this.setState({editing: false})
+                        }}>
+                            <i className='fa fa-pencil'/>
+                        </button>
+                    </div>
+                }
+
                 <div className="form-group row px-5">
                     <span className="col-sm-4">Title</span>
                     <span className="col-sm-8">
@@ -100,7 +133,7 @@ export default class JobDetailComponent extends React.Component {
                 </div>
 
 
-                    <ReviewListContainer {...this.props.match}/>
+                <ReviewListContainer {...this.props.match}/>
 
 
             </div>

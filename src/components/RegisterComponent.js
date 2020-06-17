@@ -7,6 +7,7 @@ export default class RegisterComponent extends React.Component {
         password: ''
     };
 
+    //TODO:创建wishlist
     register = () => {
         fetch("http://localhost:8080/api/register", {
             body: JSON.stringify({

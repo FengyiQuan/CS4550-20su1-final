@@ -6,7 +6,7 @@ export default class ProfileComponent extends React.Component {
         username: '',
         password: '',
         email: '',
-        dob:'',
+        dob: '',
         type: ''
     };
 
@@ -16,19 +16,18 @@ export default class ProfileComponent extends React.Component {
             credentials: "include"
         })
             .then(response => {
-              if(response.ok === false) {
-                this.props.history.push("/")
-              }
-              else {
-                return response.json()
-              }
+                if (response.ok === false) {
+                    this.props.history.push("/")
+                } else {
+                    return response.json()
+                }
             })
 
-        // .then(response => response.json())
-        //     .catch(e => {
-        //       console.log(e)
-        //         // this.props.history.push("/")
-        //     })
+            // .then(response => response.json())
+            //     .catch(e => {
+            //       console.log(e)
+            //         // this.props.history.push("/")
+            //     })
 
             .then(user => {
                 // console.log(user)
@@ -61,11 +60,11 @@ export default class ProfileComponent extends React.Component {
         })
             .then(response => response.json())
             .then(user => this.setState({
-                                    username: user.username,
-                                    password: user.password,
-                                    email: user.email,
-                                    dob: user.dob,
-                                    type: user.role
+                                            username: user.username,
+                                            password: user.password,
+                                            email: user.email,
+                                            dob: user.dob,
+                                            type: user.role
                                         }))
     }
 
@@ -75,7 +74,7 @@ export default class ProfileComponent extends React.Component {
             credentials: "include"
         })
             .then(response => this.props.history.push("/"))
-      // .then(console.log("update logout"))
+        // .then(console.log("update logout"))
 
     }
 
@@ -84,82 +83,82 @@ export default class ProfileComponent extends React.Component {
             <div>
                 <h1>Profile For {this.state.username}</h1>
 
-              <Link to={'/'}>
-                <i className="fa fa-home btn-lg"/>
-              </Link>
+                <Link to={'/'}>
+                    <i className="fa fa-home btn-lg"/>
+                </Link>
 
-              <div className='form-group row'>
-                <label className="col-md-2 col-form-label">
-                  Username:
-                </label>
-                <div className={'col-md-10'}>
-                  <input
-                      value={this.state.username}
-                      onChange={(e) => this.setState({username: e.target.value})}
-                      className="form-control"
-                      title="Username"/>
+                <div className='form-group row'>
+                    <label className="col-md-2 col-form-label">
+                        Username:
+                    </label>
+                    <div className={'col-md-10'}>
+                        <input
+                            value={this.state.username}
+                            onChange={(e) => this.setState({username: e.target.value})}
+                            className="form-control"
+                            title="Username"/>
+                    </div>
                 </div>
-              </div>
 
-              <div className='form-group row'>
-                <label className="col-md-2 col-form-label">
-                  Password:
-                </label>
-                <div className={'col-md-10'}>
-                  <input
-                      value={this.state.password}
-                      onChange={(e) => this.setState({password: e.target.value})}
-                      className="form-control"
-                      title="Current Password"/>
+                <div className='form-group row'>
+                    <label className="col-md-2 col-form-label">
+                        Password:
+                    </label>
+                    <div className={'col-md-10'}>
+                        <input
+                            value={this.state.password}
+                            onChange={(e) => this.setState({password: e.target.value})}
+                            className="form-control"
+                            title="Current Password"/>
+                    </div>
                 </div>
-              </div>
 
-              <div className='form-group row'>
-                <label className="col-md-2 col-form-label">
-                  Email:
-                </label>
-                <div className={'col-md-10'}>
-                  <input
-                      type="email"
-                      value={this.state.email}
-                      onChange={(e) => this.setState({email: e.target.value})}
-                      className="form-control"
-                      title="email"/>
+                <div className='form-group row'>
+                    <label className="col-md-2 col-form-label">
+                        Email:
+                    </label>
+                    <div className={'col-md-10'}>
+                        <input
+                            type="email"
+                            value={this.state.email || ''}
+                            onChange={(e) => this.setState({email: e.target.value})}
+                            className="form-control"
+                            title="email"/>
+                    </div>
                 </div>
-              </div>
 
-              <div className='form-group row'>
-                <label className="col-md-2 col-form-label">
-                  Date of Birth:
-                </label>
-                <div className={'col-md-10'}>
-                  <input
-                      type="date"
-                      value={this.state.dob === null ? (new Date()) : this.state.dob}
-                      onChange={(e) => {
+                <div className='form-group row'>
+                    <label className="col-md-2 col-form-label">
+                        Date of Birth:
+                    </label>
+                    <div className={'col-md-10'}>
+                        <input
+                            type="date"
+                            value={this.state.dob === null ? (new Date()) : this.state.dob}
+                            onChange={(e) => {
 
-                        this.setState({dob: e.target.value})
-                        // console.log(this.state.dob)
-                      }}
-                      className="form-control"
-                      title="dob"/>
+                                this.setState({dob: e.target.value})
+                                // console.log(this.state.dob)
+                            }}
+                            className="form-control"
+                            title="dob"/>
+                    </div>
                 </div>
-              </div>
 
-              <div className='form-group row'>
-                <label className="col-md-2 col-form-label">
-                  Role:
-                </label>
-                <div className={'col-md-10'}>
-                  <select className="form-control"
-                          value={this.state.type === null ? 'EMPLOYEE' : this.state.type}
-                          onChange={(e) => this.setState({type: e.target.value})}>
-                    <option value='EMPLOYEE'>Employee</option>
-                    <option value='JOB_SEEKER'>Job Seeker</option>
-                    <option value='ADMIN'>Admin</option>
-                  </select>
-                  </div>
-              </div>
+                <div className='form-group row'>
+                    <label className="col-md-2 col-form-label">
+                        Role:
+                    </label>
+                    <div className={'col-md-10'}>
+                        <select className="form-control"
+                                value={this.state.type === null ? 'EMPLOYEE' : this.state.type}
+                                onChange={(e) => this.setState({type: e.target.value})}>
+                            <option value='EMPLOYEE'>Employee</option>
+                            <option value='JOB_SEEKER'>Job Seeker</option>
+                            <option value='ADMIN'>Admin</option>
+                        </select>
+                    </div>
+                </div>
 
                 <button
                     onClick={() => this.update()}

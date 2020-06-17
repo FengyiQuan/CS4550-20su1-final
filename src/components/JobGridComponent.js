@@ -1,5 +1,6 @@
 import React from "react";
 import JobCardComponent from "./JobCardComponent";
+import JobRowComponent from "./JobRowComponent";
 
 export default class JobGridComponent
     extends React.Component {
@@ -35,7 +36,8 @@ export default class JobGridComponent
                      <div
                          className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
                          {
-                             this.props.jobs.map(job => <JobCardComponent job={job} key={job.id}/>)
+                             this.props.jobs.map(job => <JobCardComponent job={job} key={job.id}
+                                                                          type={this.props.type}/>)
                          }
 
                      </div>

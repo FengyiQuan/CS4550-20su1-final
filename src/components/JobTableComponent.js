@@ -1,7 +1,5 @@
 import React from "react";
 import JobRowComponent from './JobRowComponent';
-import service from '../adzuna/AdzunaAPIService'
-import NoResultFoundComponent from "./NoResultFoundComponent";
 
 export default class JobTableComponent
     extends React.Component {
@@ -36,7 +34,8 @@ export default class JobTableComponent
                      <tbody>
 
                      {
-                         this.props.jobs.map(job => <JobRowComponent job={job} key={job.id}/>)
+                         this.props.jobs.map(job => <JobRowComponent job={job} key={job.id}
+                                                                     type={this.props.type}/>)
                      }
 
                      </tbody>

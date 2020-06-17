@@ -11,11 +11,30 @@ export default class JobListContainer
         page: 1,
         jobs: [],
         newCourseTitle: 'New Title',
-        count: 1
+        count: 1,
+        type: 'visitor'
     };
 
     componentDidMount() {
         this.getSearchResult();
+        fetch("http://localhost:8080/api/profile", {
+            method: 'POST',
+            credentials: "include"
+        })
+            .then(response => {
+                if (response.ok === false) {
+                    this.props.history.push("/")
+                } else {
+                    return response.json()
+                }
+            }).then(user => {
+            // console.log(user)
+            if (user) {
+                this.setState({
+                                  type: user.role
+                              })
+            }
+        })
     };
 
     getSearchResult = () => {
@@ -73,14 +92,14 @@ export default class JobListContainer
                 }
                 {
                     this.state.layout === 'table' &&
-                    <JobTableComponent
-                        jobs={this.state.jobs}
-                        setLayout={this.setLayout}
-                    />
+                    <JobTableComponent jobs={this.state.jobs}
+                                       type={this.state.type}
+                                       setLayout={this.setLayout}/>
                 }
                 {
                     this.state.layout === 'grid' &&
                     <JobGridComponent jobs={this.state.jobs}
+                                      type={this.state.type}
                                       setLayout={this.setLayout}
                     />
                 }
