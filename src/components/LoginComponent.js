@@ -54,19 +54,22 @@ export default class LoginComponent extends React.Component {
                            value={this.state.pwdFld}
                            onChange={(event) =>
                                this.setState({pwdFld: event.target.value})}/>
-                    <a className="submit ">Sign in</a>
-                    <p className="forgot" align="center">
+                    <button className="submit"
+                            onClick={this.login}>
+                        Login
+                    </button>
+                    <div className="forgot" align="center">
                         <a className='login-link'
                            href="#">
                             Forgot Password?
                         </a>
-                    </p>
-                    <p className="register" align="center">
+                    </div>
+                    <div className="forgot" align="center">
                         <Link className='login-link'
                               to={`/register`}>
                             Register
                         </Link>
-                    </p>
+                    </div>
                 </form>
             </div>)
         // (<div>

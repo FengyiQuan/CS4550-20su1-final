@@ -59,6 +59,7 @@ export default class WikiComponent
         return (
             <div>
                 <h1>wiki</h1>
+                <Link to={'/'}>Back</Link>
                 <ul>
                     <li>
                         <a href="https://developer.adzuna.com/docs/search">Azuna</a>

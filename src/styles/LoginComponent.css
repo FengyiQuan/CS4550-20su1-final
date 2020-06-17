@@ -65,14 +65,9 @@ form.form1 {
 .forgot {
     text-shadow: 0 0 3px rgba(117, 117, 117, 0.12);
     color: #E1BEE7;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
-.register {
-    text-shadow: 0 0 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
-    padding-top: -5px;
-}
 
 .login-link {
     text-shadow: 0 0 3px rgba(117, 117, 117, 0.12);
