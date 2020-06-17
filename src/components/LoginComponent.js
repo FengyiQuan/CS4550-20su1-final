@@ -24,15 +24,17 @@ export default class LoginComponent extends React.Component {
                   method: 'POST',
                   credentials: 'include'
               })
-            .then(response => response.json())
-            // .catch(e => {
-            //     this.props.history.push("/")
-            // })
+            .catch(e => {
+                this.props.history.push("/")
+            })
             // .then(currentUser => {
+            //   console.log(currentUser)
             //     if (currentUser) {
             //         this.props.history.push("/profile")
             //     }
             // })
+
+      .then(this.props.history.push("/profile"))
 
     };
 
@@ -73,6 +75,7 @@ export default class LoginComponent extends React.Component {
                             Register
                         </Link>
                     </div>
+                  <Link to={`/profile`}>Profile</Link>
                 </form>
             </div>
         )

@@ -8,9 +8,47 @@ export default class HomeComponent
         super(props);
         this.state = {
             keyword: '',
-            role: 'visitor'
+            role: 'visitor',
+            username: '',
+            loggedin: false
         }
     }
+
+
+    componentDidMount() {
+        fetch("http://localhost:8080/api/profile", {
+            method: 'POST',
+            credentials: "include"
+        })
+        .then(response => {
+            if(response.ok === false) {
+                this.setState({role: 'visitor'})
+            }
+            else {
+                return response.json()
+            }
+        })
+
+        // .then(response => response.json())
+        //     .catch(e => {
+        //       console.log(e)
+        //         // this.props.history.push("/")
+        //     })
+
+        .then(user => {
+            // console.log(user)
+            if (user) {
+                this.setState({
+                    role:user.role,
+                    username: user.username,
+                    loggedin: true
+                })
+            }
+        })
+    }
+
+
+
 
     render() {
         return (
@@ -47,15 +85,28 @@ export default class HomeComponent
                               className="home-link pr-5">
                             WIKI
                         </Link>
-                        <Link to={`/login`}
-                              className="home-link pr-5">
-                            Sign In
-                        </Link>
 
-                        <Link to={`/register`}
-                              className="home-link">
+                        {
+                            !this.state.loggedin &&
+
+                            <Link to={`/login`}
+                                  className="home-link pr-5">
+                                Sign In
+                            </Link>
+                        }
+                        {!this.state.loggedin &&
+                            <Link to={`/register`}
+                            className="home-link">
                             Sign Up
+                            </Link>
+                        }
+                        {this.state.loggedin &&
+                        <Link to={`/profile`}
+                              className="home-link">
+                            {`Signed in as ${this.state.username}`}
                         </Link>
+                        }
+
                     </div>
                 </div>
             </div>);
