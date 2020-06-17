@@ -136,15 +136,14 @@ export default class ProfileComponent extends React.Component {
                                     </Link>
                                 </li>
                                 <li className="list-group-item">
-                                    <Link to={'/'}>
+                                    <a onClick={this.logout}>
                                         <i className="fa fa-backward"/>
                                         Logout
-                                    </Link>
+                                    </a>
                                 </li>
 
                             </ul>
                         </div>
-
 
                     </div>
                 </div>
