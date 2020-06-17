@@ -51,6 +51,13 @@ export default class RegisterComponent extends React.Component {
                             Login
                         </Link>
                     </p>
+
+                    <p className="register" align="center">
+                        <Link className='login-link'
+                              to={`/`}>
+                            Back
+                        </Link>
+                    </p>
                 </form>
             </div>)
         // (
