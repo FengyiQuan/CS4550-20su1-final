@@ -12,7 +12,7 @@ export default class ReviewRowComponent extends React.Component {
     }
 
     render() {
-        // console.log(this.props.review)
+        // console.log(this)
         return (<div className="pl-area pl-show-box">
             <div className="pl-area-userpic">
                 <img className="pl-userpic"
@@ -46,7 +46,7 @@ export default class ReviewRowComponent extends React.Component {
                         <span/>
                         </button>
                         <button className='btn'
-                                onClick={() => deleteReview(this.props.review.reviewId)}>
+                                onClick={() => this.props.deleteReviewById(this.props.review.reviewId)}>
                         <i className="fa fa-trash"/>
                         <span/>
                         </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {getCurrentUser} from "../services/ProfileService"
 import ReviewRowComponent from "./ReviewRowComponent";
+import {deleteReview} from "../services/ReviewService";
 
 export default class ReviewListComponent extends React.Component {
 
@@ -10,7 +11,8 @@ export default class ReviewListComponent extends React.Component {
             editing: false,
             username: '',
             text: '',
-            role: 'VISITOR'
+            role: 'VISITOR',
+            reviews: []
         }
     }
 
@@ -26,17 +28,43 @@ export default class ReviewListComponent extends React.Component {
             }
         });
         this.props.findReviewForJob(this.props.params.id)
+
     }
 
-    // TODO: huge work load
+    // // TODO: huge work load
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.reviews !== this.props.reviews) {
+
+        if (this.equal(prevProps.reviews, this.props.reviews)) {
+            // console.log(prevProps.reviews);
+            // console.log(this.props.reviews);
             this.props.findReviewForJob(this.props.params.id)
         }
     }
 
+    equal = (a, b) => {
+        if (a.length !== b.length) {
+            return false
+        } else {
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) {
+                    return false
+                }
+            }
+            return true;
+        }
+    }
+
+    deleteReviewById = (rid) =>
+        deleteReview(rid)
+            .then(status => this.setState(prevState => ({
+                reviews: prevState
+                    .reviews.filter(
+                        r => r.reviewId !== rid)
+            })))
+
     render() {
-        // console.log(this.props)
+        // console.log(this.props.reviews)
+        // console.log(this.state)
         return (<div>
                 <div>
                     <h2>REVIEWS</h2>
@@ -82,6 +110,12 @@ export default class ReviewListComponent extends React.Component {
                                                              });
                                                          this.setState(
                                                              {
+                                                                 reviews: [...this.state.reviews,
+                                                                     {
+                                                                         jobId: this.props.params.id,
+                                                                         username: this.state.username,
+                                                                         text: this.state.text
+                                                                     }],
                                                                  editing: false,
                                                                  text: ''
                                                              })
@@ -102,7 +136,8 @@ export default class ReviewListComponent extends React.Component {
                         review => <ReviewRowComponent review={review}
                                                       key={review.reviewId}
                                                       currentUser={this.state.username}
-                                                      rolw={this.state.role}/>)}
+                                                      rolw={this.state.role}
+                                                      deleteReviewById={this.deleteReviewById}/>)}
                 </div>
             </div>
         )

@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {addToWishList, removeFromWishList} from "../services/WishListService"
+import {removeFromWishList} from "../services/WishListService"
 
 export default class ProfileComponent extends React.Component {
     state = {
@@ -10,7 +10,7 @@ export default class ProfileComponent extends React.Component {
         dob: '',
         type: '',
         currentTab: 'OVERVIEW',
-        wishList:[]
+        wishList: []
     };
 
     componentDidMount() {
@@ -40,14 +40,11 @@ export default class ProfileComponent extends React.Component {
                                       password: user.password,
                                       email: user.email,
                                       dob: user.dob,
-                                      type: user.role
+                                      type: user.role,
+                                      wishList: user.jobs
                                   })
                 }
             })
-    }
-
-    getWishList = ()=>{
-
     }
 
     update = () => {
@@ -86,7 +83,7 @@ export default class ProfileComponent extends React.Component {
     }
 
     render() {
-        console.log(this.state.currentTab)
+        // console.log(this.state.wishList)
         return (
             <div className="row profile">
                 <div className="col-md-3">
@@ -247,7 +244,29 @@ export default class ProfileComponent extends React.Component {
 
                          </div>}
                         {this.state.currentTab === 'WISH_LIST' &&
-                         <div>afdasdfafsdasfafdasdfafsdasfafdasdfafsdasfafdasdfafsdasf
+                         <div>
+                             <ul className="list-group">
+                                 {this.state.wishList.map(
+                                     job =>
+                                         <li className="list-group-item d-flex justify-content-between align-items-center"
+                                             key={job.jobId}>
+                                             {job.jobName}
+                                             <span
+                                                 className="badge badge-pill">
+                                                 <button className='btn'
+                                                         onClick={() => removeFromWishList(
+                                                             job.jobId, this.state.username).then(
+                                                             status => this.setState(prevState => ({
+                                                                 wishList: prevState
+                                                                     .wishList.filter(
+                                                                         j => job !== j)
+                                                             })))}>
+                                                     <i className='fa fa-trash'/>
+                                                 </button>
+                                             </span>
+                                         </li>)}
+
+                             </ul>
                          </div>}
                     </div>
                 </div>
