@@ -30,8 +30,8 @@ const dispatchToPropertyMapper = (dispatch) => {
                                                     actualReviews: reviewsForJob
                                                 }))
         },
-        createReview: (rid, review) => {
-            createReview(rid, review)
+        createReview: (jid, username, review) => {
+            createReview(jid, username, review)
                 .then(newReview => dispatch({
                                                     type: 'CREATE_REVIEW',
                                                     newReview: newReview

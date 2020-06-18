@@ -13,7 +13,7 @@ export default class ProfileComponent extends React.Component {
 
     componentDidMount() {
         fetch("http://localhost:8080/api/profile", {
-            method: 'POST',
+            method: 'GET',
             credentials: "include"
         })
             .then(response => {

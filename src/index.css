@@ -4,6 +4,7 @@
 @import "styles/LoginComponent.css";
 @import "styles/ProfileComponent.css";
 @import "styles/JobListContainer.css";
+@import "styles/ReviewListComponent.css";
 
 
 body {
@@ -24,7 +25,12 @@ code {
 
 body {
     margin: 0;
-    background-color: #99CCCC;
+    background-color: #e4e5a0;
+    color:#555;
+            /*#99CCCC;*/
+}
+.jumbotron {
+    background-color: #e4e5a0;
 }
 
 

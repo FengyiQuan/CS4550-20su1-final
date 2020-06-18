@@ -19,13 +19,9 @@ export default class HomeComponent
             method: 'POST',
             credentials: "include"
         })
-            .then(response => {
-                if (response.ok === false) {
-                    this.setState({role: 'visitor'})
-                } else {
-                    return response.json()
-                }
-            })
+            .then(response =>  response.json())
+            .catch(e => this.setState({role: 'visitor'}))
+
 
             // .then(response => response.json())
             //     .catch(e => {
