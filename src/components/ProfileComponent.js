@@ -323,7 +323,7 @@ export default class ProfileComponent extends React.Component {
                                      job =>
                                          <li className="list-group-item d-flex justify-content-between align-items-center"
                                              key={`${this.state.profileUser}wishList${job.jobId}`}>
-                                             {job.jobName}
+                                             <Link to={`/detail/${job.jobId}`}>{job.jobName}</Link>
                                              {!this.isLookingForOtherProfile() &&
                                               <span className="badge badge-pill">
                                                  <button className='btn'
