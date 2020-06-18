@@ -1,41 +1,30 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {createJob} from "../services/JobService"
+
+import {addToWishList, removeFromWishList} from "../services/WishListService"
 
 export default class JobRowComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            job: this.props.job
+            job: this.props.job,
         }
     }
 
-    getUsername = () => {
-        fetch("http://localhost:8080/api/profile", {
-            method: 'POST',
-            credentials: "include"
-        })
-            .then(response => {
-                if (response.ok === false) {
-                    this.props.history.push("/")
-                } else {
-                    return response.json().username
-                }
-            })
-    }
-
-    addToWishList = (jid) => {
-        fetch("/api/profiles/{username}/wishLists", {
-            method: 'POST',
-            credentials: "include",
-            body: {
-                jid: jid
-            }
-        })
-    }
+    // addToWishList = (jid) => {
+    //     fetch("/api/profiles/${username}/wishLists", {
+    //         method: 'POST',
+    //         credentials: "include",
+    //         body: {
+    //             jid: jid
+    //         }
+    //     })
+    // }
 
     render() {
 
-        // console.log(this.getUsername())
+        // console.log(this.props.username)
         // console.log(this)
         return (
             <tr>
@@ -51,7 +40,10 @@ export default class JobRowComponent extends React.Component {
                     </Link>
                     {this.props.type === 'JOB_SEEKER' &&
                      <button className="btn btn-danger"
-                             onClick={() => this.addToWishList(this.state.job.id)}>
+                         // onClick={() => addToWishList(this.state.job.id, this.props.username)}>
+                             onClick={() => {
+                                 createJob(
+                                 {jobId: this.state.job.id, jobName: this.state.job.title})}}>
                          <i className="fa fa-heart"/>
                      </button>}
                 </td>

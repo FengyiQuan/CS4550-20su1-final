@@ -35,7 +35,8 @@ export default class JobTableComponent
 
                      {
                          this.props.jobs.map(job => <JobRowComponent job={job} key={job.id}
-                                                                     type={this.props.type}/>)
+                                                                     type={this.props.type}
+                                                                     username={this.props.username}/>)
                      }
 
                      </tbody>

@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {addToWishList, removeFromWishList} from "../services/WishListService"
 
 export default class ProfileComponent extends React.Component {
     state = {
@@ -80,6 +81,7 @@ export default class ProfileComponent extends React.Component {
     }
 
     render() {
+        console.log(this.state.currentTab)
         return (
             <div className="row profile">
                 <div className="col-md-3">
@@ -237,6 +239,10 @@ export default class ProfileComponent extends React.Component {
                                   className="btn btn-primary float-right">
                                   Update
                               </button>}
+
+                         </div>}
+                        {this.state.currentTab === 'WISH_LIST' &&
+                         <div>afdasdfafsdasfafdasdfafsdasfafdasdfafsdasfafdasdfafsdasf
                          </div>}
                     </div>
                 </div>

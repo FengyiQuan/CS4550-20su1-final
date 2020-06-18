@@ -12,7 +12,8 @@ export default class JobListContainer
         jobs: [],
         newCourseTitle: 'New Title',
         count: 1,
-        type: 'visitor'
+        type: 'visitor',
+        username: ''
     };
 
     componentDidMount() {
@@ -31,7 +32,8 @@ export default class JobListContainer
             // console.log(user)
             if (user) {
                 this.setState({
-                                  type: user.role
+                                  type: user.role,
+                                  username: user.username
                               })
             }
         })
@@ -94,13 +96,15 @@ export default class JobListContainer
                     this.state.layout === 'table' &&
                     <JobTableComponent jobs={this.state.jobs}
                                        type={this.state.type}
-                                       setLayout={this.setLayout}/>
+                                       setLayout={this.setLayout}
+                                       username={this.state.username}/>
                 }
                 {
                     this.state.layout === 'grid' &&
                     <JobGridComponent jobs={this.state.jobs}
                                       type={this.state.type}
-                                      setLayout={this.setLayout}/>
+                                      setLayout={this.setLayout}
+                                      username={this.state.username}/>
                 }
 
                 {this.state.count !== 0 &&
@@ -120,7 +124,7 @@ export default class JobListContainer
                      {
                          (this.state.count - (this.state.page * 10)) >= 10 &&
                          < button className='btn btn-success'
-                             onClick={() => this.setState({page: this.state.page + 1})}>
+                                  onClick={() => this.setState({page: this.state.page + 1})}>
                              Next Page
                          </button>
                      }
