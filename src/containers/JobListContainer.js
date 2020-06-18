@@ -100,18 +100,32 @@ export default class JobListContainer
                     this.state.layout === 'grid' &&
                     <JobGridComponent jobs={this.state.jobs}
                                       type={this.state.type}
-                                      setLayout={this.setLayout}
-                    />
+                                      setLayout={this.setLayout}/>
                 }
-                <div>Current: {this.state.page}</div>
-                <button onClick={() => this.setState(
-                    {page: this.state.page === 1 ? this.state.page : this.state.page - 1})}>
-                    Previous Page
-                </button>
 
-                < button onClick={() => this.setState({page: this.state.page + 1})}>
-                    Next Page
-                </button>
+                {this.state.count !== 0 &&
+                 <div>
+                     <div>Current: {this.state.page}</div>
+                     {
+                         this.state.page !== 1 &&
+                         <button className='btn btn-success'
+                                 onClick={() => this.setState(
+                                     {
+                                         page: this.state.page === 1 ? this.state.page
+                                                                     : this.state.page - 1
+                                     })}>
+                             Previous Page
+                         </button>
+                     }
+                     {
+                         (this.state.count - (this.state.page * 10)) >= 10 &&
+                         < button className='btn btn-success'
+                             onClick={() => this.setState({page: this.state.page + 1})}>
+                             Next Page
+                         </button>
+                     }
+                 </div>
+                }
 
             </div>
         );

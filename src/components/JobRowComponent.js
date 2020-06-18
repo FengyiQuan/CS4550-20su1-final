@@ -8,27 +8,27 @@ export default class JobRowComponent extends React.Component {
             job: this.props.job
         }
     }
-    getUsername = ()=>{
+
+    getUsername = () => {
         fetch("http://localhost:8080/api/profile", {
             method: 'POST',
             credentials: "include"
         })
             .then(response => {
-                if(response.ok === false) {
+                if (response.ok === false) {
                     this.props.history.push("/")
-                }
-                else {
+                } else {
                     return response.json().username
                 }
             })
-}
+    }
 
     addToWishList = (jid) => {
         fetch("/api/profiles/{username}/wishLists", {
             method: 'POST',
             credentials: "include",
-            body:{
-                jid:jid
+            body: {
+                jid: jid
             }
         })
     }
@@ -36,7 +36,7 @@ export default class JobRowComponent extends React.Component {
     render() {
 
         // console.log(this.getUsername())
-        console.log(this)
+        // console.log(this)
         return (
             <tr>
                 <td>{this.state.job.title.replace(/(<([^>]+)>)/ig, '')}</td>

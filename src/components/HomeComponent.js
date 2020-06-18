@@ -10,45 +10,40 @@ export default class HomeComponent
             keyword: '',
             role: 'VISITOR',
             username: '',
-            loggedin: false
+            loggedIn: false
         }
     }
-
 
     componentDidMount() {
         fetch("http://localhost:8080/api/profile", {
             method: 'POST',
             credentials: "include"
         })
-        .then(response => {
-            if(response.ok === false) {
-                this.setState({role: 'visitor'})
-            }
-            else {
-                return response.json()
-            }
-        })
+            .then(response => {
+                if (response.ok === false) {
+                    this.setState({role: 'visitor'})
+                } else {
+                    return response.json()
+                }
+            })
 
-        // .then(response => response.json())
-        //     .catch(e => {
-        //       console.log(e)
-        //         // this.props.history.push("/")
-        //     })
+            // .then(response => response.json())
+            //     .catch(e => {
+            //       console.log(e)
+            //         // this.props.history.push("/")
+            //     })
 
-        .then(user => {
-            // console.log(user)
-            if (user) {
-                this.setState({
-                    role:user.role,
-                    username: user.username,
-                    loggedin: true
-                })
-            }
-        })
+            .then(user => {
+                // console.log(user)
+                if (user) {
+                    this.setState({
+                                      role: user.role,
+                                      username: user.username,
+                                      loggedIn: true
+                                  })
+                }
+            })
     }
-
-
-
 
     render() {
         return (
@@ -86,24 +81,24 @@ export default class HomeComponent
                         </Link>
 
                         {
-                            !this.state.loggedin &&
+                            !this.state.loggedIn &&
 
                             <Link to={`/login`}
                                   className="home-link pr-5">
                                 Sign In
                             </Link>
                         }
-                        {!this.state.loggedin &&
-                            <Link to={`/register`}
-                            className="home-link">
-                            Sign Up
-                            </Link>
+                        {!this.state.loggedIn &&
+                         <Link to={`/register`}
+                               className="home-link">
+                             Sign Up
+                         </Link>
                         }
-                        {this.state.loggedin &&
-                        <Link to={`/profile`}
-                              className="home-link">
-                            {`Signed in as ${this.state.username}`}
-                        </Link>
+                        {this.state.loggedIn &&
+                         <Link to={`/profile`}
+                               className="home-link">
+                             {`Signed in as ${this.state.username}`}
+                         </Link>
                         }
 
                     </div>

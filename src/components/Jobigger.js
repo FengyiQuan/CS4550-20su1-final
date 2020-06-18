@@ -25,6 +25,10 @@ export default class Jobigger extends React.Component {
                            exact={true}
                            component={ProfileComponent}/>
 
+                    <Route path="/profile/:username"
+                           exact={true}
+                           component={ProfileComponent}/>
+
                     <Route path='/'
                            exact={true}
                            component={HomeComponent}/>

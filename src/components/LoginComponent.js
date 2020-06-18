@@ -33,9 +33,7 @@ export default class LoginComponent extends React.Component {
             //         this.props.history.push("/profile")
             //     }
             // })
-
-      .then(this.props.history.push("/profile"))
-
+            .then(this.props.history.push("/profile"))
     };
 
     render() {
@@ -75,7 +73,7 @@ export default class LoginComponent extends React.Component {
                             Register
                         </Link>
                     </div>
-                  <Link to={`/profile`}>Profile</Link>
+                    <Link to={`/profile`}>Profile</Link>
                 </form>
             </div>
         )

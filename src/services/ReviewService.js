@@ -7,12 +7,13 @@ export const findReviewByUsername = (usrname) =>
         .then(response => response.json())
 
 export const createReview = (jid, review) =>
-    fetch("http://localhost:8080/api/jobs/{jid}reviews/",
-          {
-              method: 'POST',
-              credentials: 'include',
-              headers: {
-                  'content-type': 'application/json'
-              }
-          }
-    ).then(response => response.json())
+    null
+    // fetch(`http://localhost:8080//api/jobs/${jid}/reviews/${username}`,
+    //       {
+    //           method: 'POST',
+    //           credentials: 'include',
+    //           headers: {
+    //               'content-type': 'application/json'
+    //           }
+    //       }
+    // ).then(response => response.json())
