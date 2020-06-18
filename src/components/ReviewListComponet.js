@@ -133,7 +133,7 @@ export default class ReviewListComponent extends React.Component {
                     <div className="pl-title">New Review</div>
                     {this.props.reviews.map(
                         review => <ReviewRowComponent review={review}
-                                                      key={review.reviewId}
+                                                      key={`review${review.reviewId}`}
                                                       currentUser={this.state.username}
                                                       role={this.state.role}
                                                       deleteReviewById={this.deleteReviewById}/>)}

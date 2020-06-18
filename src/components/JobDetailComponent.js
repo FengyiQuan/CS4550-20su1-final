@@ -23,7 +23,7 @@ export default class JobDetailComponent extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         // console.log(this.state.currentReview)
         // console.log(com_name)
         // console.log(self.state.job.location.display_name)

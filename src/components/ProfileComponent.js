@@ -5,6 +5,7 @@ import {removeFromWishList} from "../services/WishListService"
 export default class ProfileComponent extends React.Component {
     state = {
         username: '',
+        profileUser: '',
         password: '',
         email: '',
         dob: '',
@@ -14,6 +15,19 @@ export default class ProfileComponent extends React.Component {
     };
 
     componentDidMount() {
+        if (this.props.match.params.username === undefined) {
+
+            this.findProfileByCurrentUser()
+        } else {
+            this.findProfileByUsername()
+        }
+    }
+
+    isLookingForOtherProfile = () => {
+        return this.state.username !== this.state.profileUser;
+    }
+
+    findProfileByCurrentUser = () => {
         fetch("http://localhost:8080/api/profile", {
             headers: {
                 'content-type': 'application/json'
@@ -21,32 +35,9 @@ export default class ProfileComponent extends React.Component {
             method: 'GET',
             credentials: "include"
         })
-            // .then(response => {
-            //     // console.log(response)
-            //     if (response.ok === false) {
-            //         this.props.history.push("/")
-            //     } else {
-            //         return response.json()
-            //     }
-            // })
-        //     .catch(e => {
-        //     return fetch("http://localhost:8080/api/profile", {
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         method: 'GET',
-        //         credentials: "include"
-        //     })
-        //         .then(response => {
-        //
-        //             return response.json()
-        //
-        //         })
-        // })
-        // .then(f=>console.log(f))
-        .then(response => response.json())
+            .then(response => response.json())
             .catch(e => {
-              console.log(e)
+                console.log(e)
                 // this.props.history.push("/")
             })
 
@@ -55,15 +46,66 @@ export default class ProfileComponent extends React.Component {
                 if (user) {
                     this.setState({
                                       username: user.username,
+                                      profileUser: user.username,
                                       password: user.password,
                                       email: user.email,
                                       dob: user.dob,
                                       type: user.role,
                                       wishList: user.jobs
                                   })
-                }else{
+                } else {
                     window.location.reload();
                 }
+            })
+    }
+
+    findProfileByUsername = () => {
+        fetch("http://localhost:8080/api/profile", {
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'GET',
+            credentials: "include"
+        })
+            .then(response => response.json())
+            .catch(e => {
+                console.log(e)
+                // this.props.history.push("/")
+            })
+
+            .then(user => {
+                // console.log(user)
+                if (user) {
+                    this.setState({
+                                      username: user.username,
+
+                                  })
+                }
+            });
+        fetch(`http://localhost:8080/api/profile/${this.props.match.params.username}`, {
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'GET',
+            credentials: "include"
+        })
+            .then(response => response.json())
+            // .then(e => console.log(e))
+            .then(user => {
+                // console.log(user)
+                if (user) {
+                    this.setState({
+                                      profileUser: user.username,
+                                      password: user.password,
+                                      email: user.email,
+                                      dob: user.dob,
+                                      type: user.role,
+                                      wishList: user.jobs
+                                  })
+                }
+                // else {
+                //     window.location.reload();
+                // }
             })
     }
 
@@ -103,14 +145,17 @@ export default class ProfileComponent extends React.Component {
     }
 
     render() {
-        // console.log(this.state.wishList)
+        // console.log(this.isLookingForOtherProfile())
+        // this.findProfileByUsername()
+        // console.log('profile:' + this.state.profileUser)
+        // console.log('login' + this.state.username)
         return (
             <div className="row profile">
                 <div className="col-md-3">
                     <div className="profile-sidebar">
                         <div className="profile-usertitle">
                             <div className="profile-usertitle-name">
-                                {this.state.username}
+                                {this.state.profileUser}
                             </div>
                             <div className="profile-usertitle-job">
                                 {this.state.type}
@@ -137,15 +182,16 @@ export default class ProfileComponent extends React.Component {
                                         Overview
                                     </a>
                                 </li>
-                                <li className={`list-group-item ${this.state.currentTab
-                                                                  === 'SETTINGS'
-                                                                  ? 'profile-usermenu-active'
-                                                                  : ''}`}>
-                                    <a onClick={() => this.setState({currentTab: 'SETTINGS'})}>
-                                        <i className="fa fa-user"/>
-                                        Account Setting
-                                    </a>
-                                </li>
+                                {!this.isLookingForOtherProfile() &&
+                                 <li className={`list-group-item ${this.state.currentTab
+                                                                   === 'SETTINGS'
+                                                                   ? 'profile-usermenu-active'
+                                                                   : ''}`}>
+                                     <a onClick={() => this.setState({currentTab: 'SETTINGS'})}>
+                                         <i className="fa fa-user"/>
+                                         Account Setting
+                                     </a>
+                                 </li>}
                                 <li className={`list-group-item ${this.state.currentTab
                                                                   === 'WISH_LIST'
                                                                   ? 'profile-usermenu-active'
@@ -161,12 +207,13 @@ export default class ProfileComponent extends React.Component {
                                         Back
                                     </Link>
                                 </li>
-                                <li className="list-group-item">
-                                    <a onClick={this.logout}>
-                                        <i className="fa fa-backward"/>
-                                        Logout
-                                    </a>
-                                </li>
+                                {!this.isLookingForOtherProfile() &&
+                                 <li className="list-group-item">
+                                     <a onClick={this.logout}>
+                                         <i className="fa fa-backward"/>
+                                         Logout
+                                     </a>
+                                 </li>}
 
                             </ul>
                         </div>
@@ -184,44 +231,47 @@ export default class ProfileComponent extends React.Component {
                                  </label>
 
                                  <div className={'col-md-10'}>
-                                     <input value={this.state.username}
+                                     <input value={this.state.profileUser}
                                             onChange={(e) => this.setState(
-                                                {username: e.target.value})}
+                                                {profileUser: e.target.value})}
                                             className="form-control"
                                             title="Username"
                                             readOnly={true}/>
                                  </div>
                              </div>
 
-                             <div className='form-group row'>
+                             {!this.isLookingForOtherProfile() &&
+                              <div>
+                                  <div className='form-group row'>
 
-                                 <label className="col-md-2 col-form-label">
-                                     Password:
-                                 </label>
+                                      <label className="col-md-2 col-form-label">
+                                          Password:
+                                      </label>
 
-                                 <div className={'col-md-10'}>
-                                     <input value={this.state.password}
-                                            onChange={(e) => this.setState(
-                                                {password: e.target.value})}
-                                            className="form-control"
-                                            title="Current Password"
-                                            readOnly={this.state.currentTab === 'OVERVIEW'}/>
-                                 </div>
-                             </div>
-                             <div className='form-group row'>
-                                 <label className="col-md-2 col-form-label">
-                                     Email:
-                                 </label>
-                                 <div className={'col-md-10'}>
-                                     <input type="email"
-                                            value={this.state.email || ''}
-                                            onChange={(e) => this.setState(
-                                                {email: e.target.value})}
-                                            className="form-control"
-                                            title="email"
-                                            readOnly={this.state.currentTab === 'OVERVIEW'}/>
-                                 </div>
-                             </div>
+                                      <div className={'col-md-10'}>
+                                          <input value={this.state.password}
+                                                 onChange={(e) => this.setState(
+                                                     {password: e.target.value})}
+                                                 className="form-control"
+                                                 title="Current Password"
+                                                 readOnly={this.state.currentTab === 'OVERVIEW'}/>
+                                      </div>
+                                  </div>
+                                  <div className='form-group row'>
+                                      <label className="col-md-2 col-form-label">
+                                          Email:
+                                      </label>
+                                      <div className={'col-md-10'}>
+                                          <input type="email"
+                                                 value={this.state.email || ''}
+                                                 onChange={(e) => this.setState(
+                                                     {email: e.target.value})}
+                                                 className="form-control"
+                                                 title="email"
+                                                 readOnly={this.state.currentTab === 'OVERVIEW'}/>
+                                      </div>
+                                  </div>
+                              </div>}
                              <div className='form-group row'>
                                  <label className="col-md-2 col-form-label">
                                      Date of Birth:
@@ -272,10 +322,10 @@ export default class ProfileComponent extends React.Component {
                                  {this.state.wishList.map(
                                      job =>
                                          <li className="list-group-item d-flex justify-content-between align-items-center"
-                                             key={job.jobId}>
+                                             key={`${this.state.profileUser}wishList${job.jobId}`}>
                                              {job.jobName}
-                                             <span
-                                                 className="badge badge-pill">
+                                             {!this.isLookingForOtherProfile() &&
+                                              <span className="badge badge-pill">
                                                  <button className='btn'
                                                          onClick={() => removeFromWishList(
                                                              job.jobId, this.state.username).then(
@@ -286,7 +336,7 @@ export default class ProfileComponent extends React.Component {
                                                              })))}>
                                                      <i className='fa fa-trash'/>
                                                  </button>
-                                             </span>
+                                             </span>}
                                          </li>)}
 
                              </ul>
