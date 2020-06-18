@@ -12,7 +12,8 @@ export default class RegisterComponent extends React.Component {
         fetch("http://localhost:8080/api/register", {
             body: JSON.stringify({
                                      username: this.state.username,
-                                     password: this.state.password
+                                     password: this.state.password,
+                                     role: 'JOB_SEEKER'
                                  }),
             headers: {
                 'content-type': 'application/json'

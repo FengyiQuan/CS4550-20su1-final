@@ -15,22 +15,40 @@ export default class ProfileComponent extends React.Component {
 
     componentDidMount() {
         fetch("http://localhost:8080/api/profile", {
+            headers: {
+                'content-type': 'application/json'
+            },
             method: 'GET',
             credentials: "include"
         })
-            .then(response => {
-                if (response.ok === false) {
-                    this.props.history.push("/")
-                } else {
-                    return response.json()
-                }
+            // .then(response => {
+            //     // console.log(response)
+            //     if (response.ok === false) {
+            //         this.props.history.push("/")
+            //     } else {
+            //         return response.json()
+            //     }
+            // })
+        //     .catch(e => {
+        //     return fetch("http://localhost:8080/api/profile", {
+        //         headers: {
+        //             'content-type': 'application/json'
+        //         },
+        //         method: 'GET',
+        //         credentials: "include"
+        //     })
+        //         .then(response => {
+        //
+        //             return response.json()
+        //
+        //         })
+        // })
+        // .then(f=>console.log(f))
+        .then(response => response.json())
+            .catch(e => {
+              console.log(e)
+                // this.props.history.push("/")
             })
-
-            // .then(response => response.json())
-            //     .catch(e => {
-            //       console.log(e)
-            //         // this.props.history.push("/")
-            //     })
 
             .then(user => {
                 // console.log(user)
@@ -43,6 +61,8 @@ export default class ProfileComponent extends React.Component {
                                       type: user.role,
                                       wishList: user.jobs
                                   })
+                }else{
+                    window.location.reload();
                 }
             })
     }
@@ -99,8 +119,10 @@ export default class ProfileComponent extends React.Component {
 
 
                         <div className="profile-userbuttons">
-                            <button type="button" className="btn btn-success btn-sm">Follow</button>
-                            <button type="button" className="btn btn-danger btn-sm">Message</button>
+                            <button type="button" className="btn btn-success btn-sm">Follow
+                            </button>
+                            <button type="button" className="btn btn-danger btn-sm">Message
+                            </button>
                         </div>
 
 
@@ -193,7 +215,8 @@ export default class ProfileComponent extends React.Component {
                                  <div className={'col-md-10'}>
                                      <input type="email"
                                             value={this.state.email || ''}
-                                            onChange={(e) => this.setState({email: e.target.value})}
+                                            onChange={(e) => this.setState(
+                                                {email: e.target.value})}
                                             className="form-control"
                                             title="email"
                                             readOnly={this.state.currentTab === 'OVERVIEW'}/>

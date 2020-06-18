@@ -3,6 +3,7 @@ import service from "../adzuna/AdzunaAPIService";
 import JobTableComponent from "../components/JobTableComponent";
 import NoResultFoundComponent from "../components/NoResultFoundComponent";
 import JobGridComponent from "../components/JobGridComponent";
+import {Link} from "react-router-dom";
 
 export default class JobListContainer
     extends React.Component {
@@ -19,7 +20,7 @@ export default class JobListContainer
     componentDidMount() {
         this.getSearchResult();
         fetch("http://localhost:8080/api/profile", {
-            method: 'POST',
+            method: 'GET',
             credentials: "include"
         })
             .then(response => {
@@ -87,6 +88,7 @@ export default class JobListContainer
     //                   }));
 
     render() {
+        // console.log(this.props)
         return (
             <div>
                 {
@@ -130,7 +132,10 @@ export default class JobListContainer
                      }
                  </div>
                 }
-
+                <Link className='btn btn-primary'
+                       to={`/`}>
+                    Back
+                </Link>
             </div>
         );
     }

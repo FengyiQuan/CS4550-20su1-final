@@ -16,10 +16,10 @@ export default class HomeComponent
 
     componentDidMount() {
         fetch("http://localhost:8080/api/profile", {
-            method: 'POST',
+            method: 'GET',
             credentials: "include"
         })
-            .then(response =>  response.json())
+            .then(response => response.json())
             .catch(e => this.setState({role: 'visitor'}))
 
 
@@ -41,7 +41,14 @@ export default class HomeComponent
             })
     }
 
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (prevState!==this.state){
+    //         console.log('update')
+    //     }
+    // }
+
     render() {
+        // console.log(this.state.role)
         return (
             <div className="form-group">
                 <div className="form-group">
@@ -86,17 +93,21 @@ export default class HomeComponent
                         }
                         {!this.state.loggedIn &&
                          <Link to={`/register`}
-                               className="home-link">
+                               className="home-link pr-5">
                              Sign Up
                          </Link>
                         }
                         {this.state.loggedIn &&
                          <Link to={`/profile`}
-                               className="home-link">
+                               className="home-link pr-5">
                              {`Signed in as ${this.state.username}`}
                          </Link>
                         }
 
+                        {/*{this.state.role === 'ADMIN' &&*/}
+                        {/* <Link to={"/users"}*/}
+                        {/*       className="home-link"> Users</Link>*/}
+                        {/*}*/}
                     </div>
                 </div>
             </div>);

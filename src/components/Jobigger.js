@@ -7,6 +7,7 @@ import WikiComponent from './WikiComponent'
 import LoginComponent from "./LoginComponent";
 import RegisterComponent from "./RegisterComponent";
 import ProfileComponent from "./ProfileComponent";
+// import UserListComponent from "./UserListComponet";
 
 export default class Jobigger extends React.Component {
     render() {
@@ -32,6 +33,7 @@ export default class Jobigger extends React.Component {
                     <Route path='/'
                            exact={true}
                            component={HomeComponent}/>
+
 
                     <Route path='/PROTOTYPE'
                            exact={true}

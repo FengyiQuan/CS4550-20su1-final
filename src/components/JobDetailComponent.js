@@ -1,6 +1,7 @@
 import React from "react";
 import service from "../adzuna/AdzunaAPIService";
 import ReviewListContainer from "../containers/ReviewListContainer";
+import {Link} from "react-router-dom";
 
 export default class JobDetailComponent extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class JobDetailComponent extends React.Component {
     }
 
     render() {
-        // console.log(this.props)
+        console.log(this.props)
         // console.log(this.state.currentReview)
         // console.log(com_name)
         // console.log(self.state.job.location.display_name)
@@ -45,9 +46,10 @@ export default class JobDetailComponent extends React.Component {
                             {/* {console.log(this.state.job)} */}
                         </span>
                     </h2>
-                    <p>It uses utility classes for typography and spacing to space
-                        content out
-                        within the larger container.</p>
+                    <Link className='btn btn-primary'
+                          to={`/`}>
+                        Back To Search
+                    </Link>
                 </div>
 
 

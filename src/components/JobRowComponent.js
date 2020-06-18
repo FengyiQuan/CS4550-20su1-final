@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {createJob, findJobById} from "../services/JobService"
 
-import {addToWishList, removeFromWishList} from "../services/WishListService"
+import {addToWishList} from "../services/WishListService"
 
 export default class JobRowComponent extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ export default class JobRowComponent extends React.Component {
 
     addToWishList = () => {
         if (findJobById(this.state.job.id)) {
-            console.log('create')
+            // console.log('create')
             return createJob({jobId: this.props.job.id, jobName: this.props.job.title})
                 .then(() => addToWishList(this.state.job.id, this.props.username))
 

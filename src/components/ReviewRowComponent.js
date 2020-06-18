@@ -12,7 +12,7 @@ export default class ReviewRowComponent extends React.Component {
     }
 
     render() {
-        // console.log(this)
+        // console.log(this.props.role)
         return (<div className="pl-area pl-show-box">
             <div className="pl-area-userpic">
                 <img className="pl-userpic"

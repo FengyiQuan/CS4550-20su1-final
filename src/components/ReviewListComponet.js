@@ -31,7 +31,6 @@ export default class ReviewListComponent extends React.Component {
 
     }
 
-    // // TODO: huge work load
     componentDidUpdate(prevProps, prevState, snapshot) {
 
         if (this.equal(prevProps.reviews, this.props.reviews)) {
@@ -136,7 +135,7 @@ export default class ReviewListComponent extends React.Component {
                         review => <ReviewRowComponent review={review}
                                                       key={review.reviewId}
                                                       currentUser={this.state.username}
-                                                      rolw={this.state.role}
+                                                      role={this.state.role}
                                                       deleteReviewById={this.deleteReviewById}/>)}
                 </div>
             </div>

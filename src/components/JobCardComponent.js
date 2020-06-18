@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {createJob, findJobById} from "../services/JobService";
+import {addToWishList} from "../services/WishListService"
 
 export default class JobCardComponent extends React.Component {
     constructor(props) {
@@ -7,6 +9,18 @@ export default class JobCardComponent extends React.Component {
         this.state = {
             job: this.props.job
         }
+    }
+
+    addToWishList = () => {
+        if (findJobById(this.state.job.id)) {
+            // console.log('create')
+            return createJob({jobId: this.props.job.id, jobName: this.props.job.title})
+                .then(() => addToWishList(this.state.job.id, this.props.username))
+
+        } else {
+            return addToWishList(this.state.job.id, this.props.username)
+        }
+
     }
 
     render() {
@@ -34,12 +48,12 @@ export default class JobCardComponent extends React.Component {
                             </small>
                         </p>
 
-                        <button
-                            className="btn btn-primary"
-                            onClick={() => this.setEditing(true)}>
-                            <i className="fa fa-angle-double-right"/>
-                        </button>
+                        {this.props.type === 'JOB_SEEKER' &&
+                         <button className="btn btn-danger"
+                                 onClick={() => this.addToWishList()}>
 
+                             <i className="fa fa-heart"/>
+                         </button>}
 
                     </div>
                 </div>
