@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {createJob} from "../services/JobService"
+import {createJob, findJobById} from "../services/JobService"
 
 import {addToWishList, removeFromWishList} from "../services/WishListService"
 
@@ -12,19 +12,21 @@ export default class JobRowComponent extends React.Component {
         }
     }
 
-    // addToWishList = (jid) => {
-    //     fetch("/api/profiles/${username}/wishLists", {
-    //         method: 'POST',
-    //         credentials: "include",
-    //         body: {
-    //             jid: jid
-    //         }
-    //     })
-    // }
+    addToWishList = () => {
+        if (findJobById(this.state.job.id)) {
+            console.log('create')
+            return createJob({jobId: this.props.job.id, jobName: this.props.job.title})
+                .then(() => addToWishList(this.state.job.id, this.props.username))
+
+        } else {
+            return addToWishList(this.state.job.id, this.props.username)
+        }
+
+    }
 
     render() {
 
-        // console.log(this.props.username)
+        // console.log(this.props.type)
         // console.log(this)
         return (
             <tr>
@@ -40,10 +42,8 @@ export default class JobRowComponent extends React.Component {
                     </Link>
                     {this.props.type === 'JOB_SEEKER' &&
                      <button className="btn btn-danger"
-                         // onClick={() => addToWishList(this.state.job.id, this.props.username)}>
-                             onClick={() => {
-                                 createJob(
-                                 {jobId: this.state.job.id, jobName: this.state.job.title})}}>
+                             onClick={() => this.addToWishList()}>
+
                          <i className="fa fa-heart"/>
                      </button>}
                 </td>

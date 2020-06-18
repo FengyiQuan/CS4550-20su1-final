@@ -1,4 +1,4 @@
-export const createJob = (job) => {console.log(JSON.stringify(job))
+export const createJob = (job) => {
     return fetch(`http://localhost:8080/api/jobs`,
           {
               method: 'POST',
@@ -8,3 +8,7 @@ export const createJob = (job) => {console.log(JSON.stringify(job))
               }
           }).then(response => response.json());
 }
+
+export const findJobById = (jid)=>
+  {
+      return fetch(`http://localhost:8080/api/jobs/${jid}`).then(response => response.json());}

@@ -9,7 +9,8 @@ export default class ProfileComponent extends React.Component {
         email: '',
         dob: '',
         type: '',
-        currentTab: 'OVERVIEW'
+        currentTab: 'OVERVIEW',
+        wishList:[]
     };
 
     componentDidMount() {
@@ -43,6 +44,10 @@ export default class ProfileComponent extends React.Component {
                                   })
                 }
             })
+    }
+
+    getWishList = ()=>{
+
     }
 
     update = () => {
