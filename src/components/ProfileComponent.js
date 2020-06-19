@@ -37,8 +37,7 @@ export default class ProfileComponent extends React.Component {
         })
             .then(response => response.json())
             .catch(e => {
-                console.log(e)
-                // this.props.history.push("/")
+                this.props.history.push("/")
             })
 
             .then(user => {

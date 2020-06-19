@@ -68,6 +68,13 @@ form.form1 {
     padding-top: 10px;
 }
 
+.wrong {
+    text-shadow: 0 0 3px rgba(144, 35, 35, 1);
+    color: #902323;
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
 
 .login-link {
     text-shadow: 0 0 3px rgba(117, 117, 117, 0.12);

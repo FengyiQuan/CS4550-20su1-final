@@ -7,88 +7,33 @@ export default class LoginComponent extends React.Component {
         this.state = {
             username: "",
             password: "",
-            loginStatus: false
+            loginStatus: false,
+            error: null
         }
     }
 
-    // login = () => {
-    //     fetch("http://localhost:8080/api/login", {
-    //         body: JSON.stringify({
-    //                                  username: this.state.username,
-    //                                  password: this.state.password}),
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         method: 'POST',
-    //         credentials: "include"
-    //     }).then(response => response.json())
-    //         .catch(e => {
-    //             console.log('aesf')
-    //             this.props.history.push("/login")
-    //         })
-    //         .then(currentUser => {
-    //             if(currentUser)
-    //                 this.props.history.push("/profile")
-    //         })
-    //
-    // }
-    // login = () => {
-    //
-    //     fetch('http://localhost:8080/api/login',
-    //           {
-    //               body: JSON.stringify({
-    //                                        username: this.state.username,
-    //                                        password: this.state.password
-    //                                    }),
-    //               headers: {
-    //                   'content-type': 'application/json'
-    //               },
-    //               method: 'POST',
-    //               credentials: 'include'
-    //           })
-    //         .then(response => {
-    //             if (response.ok) {
-    //                 return this.setState({loginStatus: true})
-    //             } else {
-    //                 // throw new Error(
-    //                 //     'The email or password did not match our records. Please try again. ');
-    //             }
-    //         }).then(() => {
-    //         if (this.state.loginStatus) {
-    //
-    //             this.props.history.push("/profile")
-    //         } else {
-    //             alert('The email or password did not match our records. Please try again. ')
-    //         }
-    //     })
-    // };
+  login = () => {
+    fetch("http://localhost:8080/api/login", {
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password}),
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      credentials: "include"
+    }).then(response => response.json())
+    .catch(e => {
+      this.setState({error: "Wrong username or password, try again",
+        username: "", password: ""})
+      this.props.history.push("/login")
+    })
+    .then(currentUser => {
+      if(currentUser)
+        this.props.history.push("/profile")
+    })
 
-
-    login = () => {
-
-        fetch('https://cs4550-20su1-jobigger-server.herokuapp.com/api/login',
-              {
-                  body: JSON.stringify({
-                                           username: this.state.username,
-                                           password: this.state.password
-                                       }),
-                  headers: {
-                      'content-type': 'application/json'
-                  },
-                  method: 'POST',
-                  credentials: 'include'
-              })
-            .catch(e => {
-                this.props.history.push("/")
-            })
-            // .then(currentUser => {
-            //   console.log(currentUser)
-            //     if (currentUser) {
-            //         this.props.history.push("/profile")
-            //     }
-            // })
-            .then(this.props.history.push("/profile"))
-    };
+  }
 
     render() {
         return (
@@ -96,7 +41,7 @@ export default class LoginComponent extends React.Component {
                 <div className="sign" align="center">
                     Sign in
                 </div>
-                <form className="form1">
+                <div className="form1">
                     <input className="login-input"
                            type="text"
                            align="center"
@@ -111,6 +56,14 @@ export default class LoginComponent extends React.Component {
                            value={this.state.password}
                            onChange={(event) =>
                                this.setState({password: event.target.value})}/>
+
+                  {
+                    this.state.error &&
+                    <div className="wrong" align="center">
+                      {`${this.state.error}`}
+                    </div>
+                  }
+
                     <button className="submit"
                             onClick={this.login}>
                         Login
@@ -128,7 +81,7 @@ export default class LoginComponent extends React.Component {
                         </Link>
                     </div>
                     {/*<Link to={`/profile`}>Profile</Link>*/}
-                </form>
+                </div>
             </div>
         )
     }

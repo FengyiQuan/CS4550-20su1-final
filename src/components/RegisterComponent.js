@@ -8,12 +8,12 @@ export default class RegisterComponent extends React.Component {
         error: null
     };
 
-    //TODO:创建wishlist
     register = () => {
         fetch("https://cs4550-20su1-jobigger-server.herokuapp.com/api/register", {
             body: JSON.stringify({
                                      username: this.state.username,
                                      password: this.state.password,
+                                     jobs:[],
                                      role: 'JOB_SEEKER'
                                  }),
             headers: {
@@ -22,11 +22,16 @@ export default class RegisterComponent extends React.Component {
             method: 'POST',
             credentials: "include"
         }).then(response => response.json())
-            // .catch(e => this.setState({
-            //                               error: 'Unable to register'
-            //                           })
-            // )
-            .then(currentUser => this.props.history.push("/profile"))
+        .catch(e => {
+            this.setState({
+                error: 'Unable to register'
+            })
+        })
+        .then(currentUser => {
+            if(currentUser) {
+                this.props.history.push("/profile")
+            }
+        })
     };
 
 
@@ -37,7 +42,7 @@ export default class RegisterComponent extends React.Component {
                     Register
                 </div>
 
-                <form className="form1">
+                <div className="form1">
                     {
                         this.state.error &&
                         <div className="alert alert-danger">
@@ -58,6 +63,13 @@ export default class RegisterComponent extends React.Component {
                            value={this.state.password}
                            onChange={(event) =>
                                this.setState({password: event.target.value})}/>
+
+                    {
+                        this.state.error &&
+                        <div className="wrong" align="center">
+                            {`${this.state.error}`}
+                        </div>
+                    }
                     <button className="submit"
                             onClick={this.register}>
                         Sign Up
@@ -76,7 +88,7 @@ export default class RegisterComponent extends React.Component {
                             Back
                         </Link>
                     </div>
-                </form>
+                </div>
             </div>)
     }
 }
