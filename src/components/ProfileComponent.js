@@ -60,7 +60,7 @@ export default class ProfileComponent extends React.Component {
     }
 
     findProfileByUsername = () => {
-        fetch("http://localhost:8080/api/profile", {
+        fetch("https://cs4550-20su1-team2-jobigger.herokuapp.com/api/profile", {
             headers: {
                 'content-type': 'application/json'
             },
@@ -82,7 +82,7 @@ export default class ProfileComponent extends React.Component {
                                   })
                 }
             });
-        fetch(`http://localhost:8080/api/profile/${this.props.match.params.username}`, {
+        fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/profile/${this.props.match.params.username}`, {
             headers: {
                 'content-type': 'application/json'
             },
@@ -110,7 +110,7 @@ export default class ProfileComponent extends React.Component {
     }
 
     update = () => {
-        fetch("http://localhost:8080/api/profile", {
+        fetch("https://cs4550-20su1-team2-jobigger.herokuapp.com/api/profile", {
             body: JSON.stringify({
                                      username: this.state.username,
                                      password: this.state.password,
@@ -135,7 +135,7 @@ export default class ProfileComponent extends React.Component {
     }
 
     logout = () => {
-        fetch("http://localhost:8080/api/logout", {
+        fetch("https://cs4550-20su1-team2-jobigger.herokuapp.com/api/logout", {
             method: 'POST',
             credentials: "include"
         })

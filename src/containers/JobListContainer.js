@@ -19,7 +19,7 @@ export default class JobListContainer
 
     componentDidMount() {
         this.getSearchResult();
-        fetch("http://localhost:8080/api/profile", {
+        fetch("https://cs4550-20su1-team2-jobigger.herokuapp.com/api/profile", {
             method: 'GET',
             credentials: "include"
         })

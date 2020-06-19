@@ -1,7 +1,7 @@
 import {createJob} from "./JobService"
 
 export const addToWishList = (jid, username) =>
-    fetch(`http://localhost:8080/api/${username}/wishlist/${jid}`,
+    fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/${username}/wishlist/${jid}`,
           {
               method: 'POST',
               headers: {
@@ -13,7 +13,7 @@ export const addToWishList = (jid, username) =>
     });
 
 export const removeFromWishList = (jid, username) =>
-    fetch(`http://localhost:8080/api/${username}/wishlist/${jid}`,
+    fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/${username}/wishlist/${jid}`,
           {
               method: 'DELETE',
               headers: {

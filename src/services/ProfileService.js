@@ -1,4 +1,4 @@
-const path = 'http://localhost:8080';
+const path = 'https://cs4550-20su1-team2-jobigger.herokuapp.com';
 
 export const getCurrentUser = () => {
     return fetch(`${path}/api/profile`, {

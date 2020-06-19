@@ -1,5 +1,5 @@
 export const createJob = (job) => {
-    return fetch(`http://localhost:8080/api/jobs`,
+    return fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/jobs`,
           {
               method: 'POST',
               body: JSON.stringify(job),
@@ -11,5 +11,5 @@ export const createJob = (job) => {
 
 export const findJobById = (jid)=>
   {
-      return fetch(`http://localhost:8080/api/jobs/${jid}`)
+      return fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/jobs/${jid}`)
           .then(response => response.json()).catch(e=>{});}
