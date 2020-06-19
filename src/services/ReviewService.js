@@ -1,13 +1,13 @@
 export const findReviewsForJob = (jid) =>
-    fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/jobs/${jid}/reviews`)
+    fetch(`https://cs4550-20su1-jobigger-server.herokuapp.com/api/jobs/${jid}/reviews`)
         .then(response => response.json());
 
 export const findReviewByUsername = (username) =>
-    fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/profiles/${username}/reviews`)
+    fetch(`https://cs4550-20su1-jobigger-server.herokuapp.com/api/profiles/${username}/reviews`)
         .then(response => response.json());
 
 export const createReview = (jid, username, review) =>
-    fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/jobs/${jid}/reviews/${username}`,
+    fetch(`https://cs4550-20su1-jobigger-server.herokuapp.com/api/jobs/${jid}/reviews/${username}`,
           {
               method: 'POST',
               headers: {
@@ -18,7 +18,7 @@ export const createReview = (jid, username, review) =>
     ).then(response => response.json());
 
 export const deleteReview = (rid) =>
-    fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/reviews/${rid}`,
+    fetch(`https://cs4550-20su1-jobigger-server.herokuapp.com/api/reviews/${rid}`,
           {
               method: 'DELETE',
               headers: {
@@ -28,7 +28,7 @@ export const deleteReview = (rid) =>
           }).then(response => response.json());
 
 export const updateReview = (rid, newReview) =>
-    fetch(`https://cs4550-20su1-team2-jobigger.herokuapp.com/api/reviews/${rid}`,
+    fetch(`https://cs4550-20su1-jobigger-server.herokuapp.com/api/reviews/${rid}`,
           {
               method: 'PUT',
               headers: {

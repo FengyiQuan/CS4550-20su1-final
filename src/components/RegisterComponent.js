@@ -10,7 +10,7 @@ export default class RegisterComponent extends React.Component {
 
     //TODO:创建wishlist
     register = () => {
-        fetch("https://cs4550-20su1-team2-jobigger.herokuapp.com/api/register", {
+        fetch("https://cs4550-20su1-jobigger-server.herokuapp.com/api/register", {
             body: JSON.stringify({
                                      username: this.state.username,
                                      password: this.state.password,

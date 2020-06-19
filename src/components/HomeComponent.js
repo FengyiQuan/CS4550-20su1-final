@@ -15,7 +15,7 @@ export default class HomeComponent
     }
 
     componentDidMount() {
-        fetch("https://cs4550-20su1-team2-jobigger.herokuapp.com/api/profile", {
+        fetch("https://cs4550-20su1-jobigger-server.herokuapp.com/api/profile", {
             method: 'GET',
             credentials: "include"
         })
