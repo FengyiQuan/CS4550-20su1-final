@@ -78,10 +78,10 @@ can edit it by clicking them.
 
 # Domain Objects
 We are trying to represent the relationship between jobs, different people and reviews. 
-- Each job has jobId, jobName and corresponding reviews. jobId is same as Adzuna api jobId (id).
-- Profile has username, password, role, email, dob. Role is one of 
+- Each job has `jobId`, `jobName` and corresponding `reviews`. `jobId` is same as Adzuna api jobId (id).
+- Profile has `username`, `password`, `role`, `email`, `dob`. `Role` is one of 
 `VISITOR, EMPLOYEE, JOB_SEEKER, ADMIN`.
-- Review has reviewId, job that review for, profile that indicate who writes this review. 
+- Review has `reviewId`, `job` that review for, `profile` that indicate who writes this review. 
 
 # Link
 - `/` home
