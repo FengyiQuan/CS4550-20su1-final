@@ -14,7 +14,7 @@ export default class JobCardComponent extends React.Component {
     addToWishList = () => {
         if (findJobById(this.state.job.id)) {
             // console.log('create')
-            return createJob({jobId: this.props.job.id, jobName: this.props.job.title})
+            return createJob({jobId: this.props.job.id, jobName: this.props.job.title.replace(/(<([^>]+)>)/ig, '')})
                 .then(() => addToWishList(this.state.job.id, this.props.username))
 
         } else {
