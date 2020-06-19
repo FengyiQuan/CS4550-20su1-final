@@ -32,7 +32,7 @@ export default class ReviewRowComponent extends React.Component {
                 {this.state.editing && <textarea value={this.state.text}
                                                  onChange={(e) => this.setState(
                                                      {text: e.target.value})}
-                    className={'form-control'}/>}
+                                                 className={'form-control'}/>}
 
                 <div className="pl-show-tools">
                     {(this.props.role === 'ADMIN' ||
@@ -46,7 +46,8 @@ export default class ReviewRowComponent extends React.Component {
                         <span/>
                         </button>
                         <button className='btn'
-                                onClick={() => this.props.deleteReviewById(this.props.review.reviewId)}>
+                                onClick={() => this.props.deleteReviewById(
+                                    this.props.review.reviewId)}>
                         <i className="fa fa-trash"/>
                         <span/>
                         </button>
@@ -57,7 +58,7 @@ export default class ReviewRowComponent extends React.Component {
 
                           <button className='btn'
                                   onClick={() => {
-                                      updateReview(this.props.review.reviewId, {
+                                      this.props.updateReview(this.props.review.reviewId, {
                                           reviewId: this.props.review.reviewId,
                                           text: this.state.text,
                                           jobId: this.props.review.jobId,

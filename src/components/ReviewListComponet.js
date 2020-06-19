@@ -1,7 +1,8 @@
 import React from 'react';
 import {getCurrentUser} from "../services/ProfileService"
 import ReviewRowComponent from "./ReviewRowComponent";
-import {deleteReview} from "../services/ReviewService";
+import {deleteReview, updateReview} from "../services/ReviewService";
+import {Link} from "react-router-dom";
 
 export default class ReviewListComponent extends React.Component {
 
@@ -32,22 +33,22 @@ export default class ReviewListComponent extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-
-        if (this.equal(prevProps.reviews, this.props.reviews)) {
-            // console.log(prevProps.reviews);
-            // console.log(this.props.reviews);
+        if (this.state.reviews !== prevState.reviews) {
             this.props.findReviewForJob(this.props.params.id)
         }
+
     }
 
     equal = (a, b) => {
+
         if (a.length !== b.length) {
             return false
         } else {
             for (let i = 0; i < a.length; i++) {
                 if (a[i] !== b[i]) {
-                    return false
+                    return false;
                 }
+
             }
             return true;
         }
@@ -61,17 +62,33 @@ export default class ReviewListComponent extends React.Component {
                         r => r.reviewId !== rid)
             })))
 
+    updateReview = (rid, review) =>
+        updateReview(rid, review).then(status => this.setState(prevState => ({
+            reviews: prevState
+                .reviews.map(
+                    r => r.reviewId === rid ? review : r)
+        })))
+
     render() {
         // console.log(this.props.reviews)
-        // console.log(this.state)
+        // console.log(this.props)
         return (<div>
                 <div>
                     <h2>REVIEWS</h2>
-                    <button className="btn btn-warning btn-lg"
-                            role="button"
-                            onClick={() => this.setState({editing: true})}>
-                        Write Review
-                    </button>
+                    {this.state.role === 'VISITOR' &&
+                     <Link to={`/login`}
+                           className="btn btn-warning btn-lg">
+                         Login To Write Review
+                     </Link>
+                    }
+                    {this.state.role !== 'VISITOR' &&
+                     <button className="btn btn-warning btn-lg"
+                             role="button"
+                             onClick={() =>
+                                 this.setState({editing: true})}>
+                         Write Review
+                     </button>}
+
                     {this.state.editing &&
                      <div className="pl-area">
                          <div className="pl-area-userpic">
@@ -136,7 +153,8 @@ export default class ReviewListComponent extends React.Component {
                                                       key={`review${review.reviewId}`}
                                                       currentUser={this.state.username}
                                                       role={this.state.role}
-                                                      deleteReviewById={this.deleteReviewById}/>)}
+                                                      deleteReviewById={this.deleteReviewById}
+                                                      updateReview={this.updateReview}/>)}
                 </div>
             </div>
         )
