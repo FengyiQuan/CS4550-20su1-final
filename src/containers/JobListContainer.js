@@ -24,12 +24,13 @@ export default class JobListContainer
             credentials: "include"
         })
             .then(response => {
-                if (response.ok === false) {
-                    this.props.history.push("/")
-                } else {
+                // if (response.ok === false) {
+                //     this.props.history.push("/")
+                // } else {
                     return response.json()
-                }
-            }).then(user => {
+                // }
+            }).catch(e=>{})
+            .then(user => {
             // console.log(user)
             if (user) {
                 this.setState({

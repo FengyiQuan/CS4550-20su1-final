@@ -9,7 +9,7 @@ export const addToWishList = (jid, username) =>
               }
           }).then(response => response.json()).catch(e => {
         createJob(jid)
-        addToWishList(jid, username)
+        return addToWishList(jid, username)
     });
 
 export const removeFromWishList = (jid, username) =>
