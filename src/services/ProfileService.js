@@ -1,4 +1,4 @@
-const path = 'https://cs4550-20su1-team2-jobigger.herokuapp.com';
+const path = 'https://cs4550-20su1-jobigger-server.herokuapp.com';
 
 export const getCurrentUser = () => {
     return fetch(`${path}/api/profile`, {
