@@ -32,6 +32,38 @@ export default class LoginComponent extends React.Component {
     //         })
     //
     // }
+    // login = () => {
+    //
+    //     fetch('http://localhost:8080/api/login',
+    //           {
+    //               body: JSON.stringify({
+    //                                        username: this.state.username,
+    //                                        password: this.state.password
+    //                                    }),
+    //               headers: {
+    //                   'content-type': 'application/json'
+    //               },
+    //               method: 'POST',
+    //               credentials: 'include'
+    //           })
+    //         .then(response => {
+    //             if (response.ok) {
+    //                 return this.setState({loginStatus: true})
+    //             } else {
+    //                 // throw new Error(
+    //                 //     'The email or password did not match our records. Please try again. ');
+    //             }
+    //         }).then(() => {
+    //         if (this.state.loginStatus) {
+    //
+    //             this.props.history.push("/profile")
+    //         } else {
+    //             alert('The email or password did not match our records. Please try again. ')
+    //         }
+    //     })
+    // };
+
+
     login = () => {
 
         fetch('http://localhost:8080/api/login',
@@ -46,21 +78,16 @@ export default class LoginComponent extends React.Component {
                   method: 'POST',
                   credentials: 'include'
               })
-            .then(response => {
-                if (response.ok) {
-                    return this.setState({loginStatus: true})
-                } else {
-                    // throw new Error(
-                    //     'The email or password did not match our records. Please try again. ');
-                }
-            }).then(() => {
-            if (this.state.loginStatus) {
-
-                this.props.history.push("/profile")
-            } else {
-                alert('The email or password did not match our records. Please try again. ')
-            }
-        })
+            .catch(e => {
+                this.props.history.push("/")
+            })
+            // .then(currentUser => {
+            //   console.log(currentUser)
+            //     if (currentUser) {
+            //         this.props.history.push("/profile")
+            //     }
+            // })
+            .then(this.props.history.push("/profile"))
     };
 
     render() {
