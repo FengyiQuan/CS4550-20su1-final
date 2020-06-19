@@ -28,7 +28,7 @@ export default class ProfileComponent extends React.Component {
     }
 
     findProfileByCurrentUser = () => {
-        fetch("http://localhost:8080/api/profile", {
+        fetch("https://cs4550-20su1-jobigger-server.herokuapp.com/api/profile", {
             headers: {
                 'content-type': 'application/json'
             },
