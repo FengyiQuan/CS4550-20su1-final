@@ -6,7 +6,7 @@ const ReviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case "DELETE_REVIEW":
             return {
-                reviews: state.reviews.filter(review => review.reviewId !== review.reviewId)
+                reviews: state.reviews.filter(review => action.reviewId !== review.reviewId)
             };
         case "FIND_REVIEWS_FOR_JOB":
             return {

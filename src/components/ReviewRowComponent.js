@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {deleteReview, updateReview} from "../services/ReviewService"
 
 export default class ReviewRowComponent extends React.Component {
     constructor(props) {

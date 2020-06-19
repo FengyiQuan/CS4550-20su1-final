@@ -1,6 +1,5 @@
 import React from "react";
 import JobCardComponent from "./JobCardComponent";
-import JobRowComponent from "./JobRowComponent";
 
 export default class JobGridComponent
     extends React.Component {

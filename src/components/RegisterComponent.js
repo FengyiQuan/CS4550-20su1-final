@@ -4,7 +4,8 @@ import {Link} from "react-router-dom";
 export default class RegisterComponent extends React.Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        error: null
     };
 
     //TODO:创建wishlist
@@ -21,38 +22,13 @@ export default class RegisterComponent extends React.Component {
             method: 'POST',
             credentials: "include"
         }).then(response => response.json())
+            // .catch(e => this.setState({
+            //                               error: 'Unable to register'
+            //                           })
+            // )
             .then(currentUser => this.props.history.push("/profile"))
     };
-    // // TODO:创建wishlist
-    // register = () => {
-    //     fetch("http://localhost:8080/api/register", {
-    //         body: JSON.stringify({
-    //                                  username: this.state.username,
-    //                                  password: this.state.password,
-    //                                  role: 'JOB_SEEKER'
-    //                              }),
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         method: 'POST',
-    //         credentials: "include"
-    //     })
-    //         .then(response => {
-    //             console.log(response)
-    //             if (response.ok) {
-    //                 this.props.history.push("/profile")
-    //             } else {
-    //                 throw new Error(
-    //                     'Username may not valid. Please try again. ');
-    //             }
-    //         })
-    //         .catch(e => alert(e))
-    //
-    //
-    //         //
-    //         // .then(response => response.json())
-    //         // .then(currentUser => this.props.history.push("/profile"))
-    // };
+
 
     render() {
         return (
@@ -60,7 +36,14 @@ export default class RegisterComponent extends React.Component {
                 <div className="sign" align="center">
                     Register
                 </div>
+
                 <form className="form1">
+                    {
+                        this.state.error &&
+                        <div className="alert alert-danger">
+                            {this.state.error}
+                        </div>
+                    }
                     <input className="login-input"
                            type="text"
                            align="center"

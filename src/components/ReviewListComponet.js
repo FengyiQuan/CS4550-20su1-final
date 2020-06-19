@@ -83,9 +83,8 @@ export default class ReviewListComponent extends React.Component {
                     }
                     {this.state.role !== 'VISITOR' &&
                      <button className="btn btn-warning btn-lg"
-                             role="button"
                              onClick={() =>
-                                 this.setState({editing: true})}>
+                                 this.setState({editing: !this.state.editing})}>
                          Write Review
                      </button>}
 
