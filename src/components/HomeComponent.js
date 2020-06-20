@@ -47,6 +47,17 @@ export default class HomeComponent
     //     }
     // }
 
+
+    logout = () => {
+        fetch("https://cs4550-20su1-jobigger-server.herokuapp.com/api/logout", {
+            method: 'POST',
+            credentials: "include"
+        })
+        .then(response => this.setState({loggedIn: false}))
+        // .then(console.log("update logout"))
+
+    }
+
     render() {
         // console.log(this.state.role)
         return (
@@ -102,6 +113,13 @@ export default class HomeComponent
                                className="home-link pr-5">
                              {`Signed in as ${this.state.username}`}
                          </Link>
+                        }
+
+                        {this.state.loggedIn &&
+                        <button className="btn btn-danger"
+                                onClick={this.logout}>
+                            Log out
+                        </button>
                         }
 
                         {/*{this.state.role === 'ADMIN' &&*/}

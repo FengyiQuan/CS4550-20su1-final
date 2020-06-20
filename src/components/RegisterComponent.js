@@ -5,6 +5,7 @@ export default class RegisterComponent extends React.Component {
     state = {
         username: '',
         password: '',
+        type: null,
         error: null
     };
 
@@ -14,6 +15,7 @@ export default class RegisterComponent extends React.Component {
                                      username: this.state.username,
                                      password: this.state.password,
                                      jobs:[],
+                                     type: this.state.type,
                                      role: 'JOB_SEEKER'
                                  }),
             headers: {
@@ -63,6 +65,16 @@ export default class RegisterComponent extends React.Component {
                            value={this.state.password}
                            onChange={(event) =>
                                this.setState({password: event.target.value})}/>
+
+                    <select className="login-input"
+                            value={this.state.type === null ? 'EMPLOYEE'
+                                : this.state.type}
+                            onChange={(e) => this.setState(
+                                {type: e.target.value})}>
+                        <option value='EMPLOYEE'>Employee</option>
+                        <option value='JOB_SEEKER'>Job Seeker</option>
+                        <option value='ADMIN'>Admin</option>
+                    </select>
 
                     {
                         this.state.error &&

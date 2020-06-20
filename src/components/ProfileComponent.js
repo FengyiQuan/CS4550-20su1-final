@@ -289,24 +289,29 @@ export default class ProfileComponent extends React.Component {
                                          readOnly={this.state.currentTab === 'OVERVIEW'}/>
                                  </div>
                              </div>
-
+                           {
+                             this.state.currentTab === 'OVERVIEW' &&
                              <div className='form-group row'>
-                                 <label className="col-md-2 col-form-label">
-                                     Role:
-                                 </label>
-                                 <div className={'col-md-10'}>
-                                     <select className="form-control"
-                                             value={this.state.type === null ? 'EMPLOYEE'
-                                                                             : this.state.type}
-                                             onChange={(e) => this.setState(
-                                                 {type: e.target.value})}
-                                             disabled={this.state.currentTab === 'OVERVIEW'}>
-                                         <option value='EMPLOYEE'>Employee</option>
-                                         <option value='JOB_SEEKER'>Job Seeker</option>
-                                         <option value='ADMIN'>Admin</option>
-                                     </select>
-                                 </div>
+                               <label className="col-md-2 col-form-label">
+                                 Role:
+                               </label>
+                               <div className={'col-md-10'}>
+                                 <select className="form-control"
+                                         value={this.state.type === null
+                                             ? 'EMPLOYEE'
+                                             : this.state.type}
+                                         onChange={(e) => this.setState(
+                                             {type: e.target.value})}
+                                         disabled={this.state.currentTab
+                                         === 'OVERVIEW'}>
+                                   <option value='EMPLOYEE'>Employee</option>
+                                   <option value='JOB_SEEKER'>Job Seeker
+                                   </option>
+                                   <option value='ADMIN'>Admin</option>
+                                 </select>
+                               </div>
                              </div>
+                           }
                              {this.state.currentTab === 'SETTINGS' &&
                               <button
                                   onClick={() => this.update()}
