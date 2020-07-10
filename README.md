@@ -1,10 +1,10 @@
 # CS4550-20su1-final
-# Jobigger
+# [Jobigger](https://jobigger-react2.herokuapp.com/)
 # Team: Fengyi Quan, Ruochen Zhuang
 ## [Google Document Link](https://docs.google.com/document/d/1KFIONIMVNue0Vp0JVMilHfNbEsssDyMHjZ9Dn8Nkr8Y/edit)
+
+
 # Problem 
-
-
 - During the co-op or post-graduate job search process, the only available information is limited 
 like job description or location. Such a description is not sufficient for job seekers to determine 
 the value of the job. Instead, companies’ detailed information and first hand experience should be 
